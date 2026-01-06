@@ -1,0 +1,39 @@
+{
+  "name": "rnk-hide-em",
+  "version": "2.0.0",
+  "description": "RNK™ Hide 'Em - Advanced Foundry VTT UI visibility control module",
+  "main": "scripts/module.js",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage --coverageReporters=text-summary --coverageReporters=text",
+    "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch",
+    "test:verbose": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage --verbose"
+  },
+  "keywords": [
+    "foundry",
+    "foundryvtt",
+    "module",
+    "ui",
+    "hotbar",
+    "visibility"
+  ],
+  "author": "Asgard Innovations / RNK™",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
+  },
+  "type": "module",
+  "jest": {
+    "testEnvironment": "jsdom",
+    "collectCoverageFrom": [
+      "scripts/**/*.js",
+      "!scripts/**/*.test.js",
+      "!scripts/**/*.spec.js"
+    ],
+    "transform": {},
+    "testMatch": [
+      "**/tests/**/*.test.js"
+    ]
+  }
+}

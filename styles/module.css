@@ -1,0 +1,247 @@
+/**
+ * Copyright © 2025 Asgard Innovations / RNK™
+ * All Rights Reserved
+ */
+
+/* Logo Header */
+.hide-hotbar-config .rnk-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    background: linear-gradient(135deg, #6b4423 0%, #8b4513 50%, #5a3a1a 100%);
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.hide-hotbar-config .rnk-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid #a0826d;
+    box-shadow: 0 0 15px rgba(107, 68, 35, 0.6);
+}
+
+.hide-hotbar-config .rnk-header h2 {
+    color: #fff;
+    margin: 0;
+    font-size: 1.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Tabs */
+.hide-hotbar-config nav.tabs {
+    border-bottom: 2px solid #8b4513;
+    margin-bottom: 15px;
+}
+
+.hide-hotbar-config nav.tabs .item {
+    background: rgba(139, 69, 19, 0.1);
+    border: 1px solid #8b4513;
+    color: #a0826d;
+    transition: all 0.3s ease;
+}
+
+.hide-hotbar-config nav.tabs .item:hover {
+    background: rgba(139, 69, 19, 0.3);
+    transform: translateY(-2px);
+}
+
+.hide-hotbar-config nav.tabs .item.active {
+    background: #8b4513;
+    color: #e8dcc4;
+}
+
+/* Grid Layout */
+.hide-hotbar-config .grid-layout {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 8px;
+    margin: 15px 0;
+}
+
+.hide-hotbar-config .slot-checkbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #8b4513;
+    padding: 8px;
+    border-radius: 5px;
+    background: rgba(107, 68, 35, 0.1);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.hide-hotbar-config .slot-checkbox:hover {
+    background: rgba(107, 68, 35, 0.25);
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(139, 69, 19, 0.4);
+}
+
+.hide-hotbar-config .slot-checkbox label {
+    font-weight: bold;
+    color: #8b4513;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.hide-hotbar-config .slot-checkbox input[type="checkbox"]:checked + label {
+    color: #a0522d;
+}
+
+/* Pages Grid */
+.hide-hotbar-config .pages-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.hide-hotbar-config .page-checkbox {
+    padding: 15px;
+    border: 2px solid #8b4513;
+    border-radius: 5px;
+    background: rgba(107, 68, 35, 0.1);
+    transition: all 0.2s ease;
+}
+
+.hide-hotbar-config .page-checkbox:hover {
+    background: rgba(107, 68, 35, 0.25);
+    transform: translateX(5px);
+}
+
+.hide-hotbar-config .page-checkbox label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+.hide-hotbar-config .page-range {
+    color: #999;
+    font-size: 0.9em;
+}
+
+/* Button Group */
+.hide-hotbar-config .button-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.hide-hotbar-config .button-group button {
+    flex: 1;
+}
+
+/* Range Inputs */
+.hide-hotbar-config input[type="range"] {
+    width: 70%;
+    margin-right: 10px;
+}
+
+.hide-hotbar-config .range-value {
+    display: inline-block;
+    min-width: 60px;
+    text-align: right;
+    font-weight: bold;
+    color: #8b4513;
+}
+/* Sidebar Tabs Grid */
+.hide-hotbar-config .sidebar-tabs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.hide-hotbar-config .sidebar-tabs-grid .form-group {
+    border: 1px solid #8b4513;
+    padding: 10px;
+    border-radius: 5px;
+    background: rgba(107, 68, 35, 0.1);
+    margin: 0;
+}
+
+.hide-hotbar-config .sidebar-tabs-grid label i {
+    width: 20px;
+    text-align: center;
+    margin-right: 5px;
+    color: #8b4513;
+}
+/* Preset Controls */
+.hide-hotbar-config .preset-controls .form-fields {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.hide-hotbar-config .preset-controls select {
+    flex: 1;
+}
+
+.hide-hotbar-config .preset-info {
+    padding: 15px;
+    background: rgba(107, 68, 35, 0.2);
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+/* Buttons */
+.hide-hotbar-config button {
+    background: linear-gradient(135deg, #6b4423 0%, #8b4513 50%, #5a3a1a 100%);
+    border: none;
+    color: #e8dcc4;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.hide-hotbar-config button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(107, 68, 35, 0.5);
+}
+
+.hide-hotbar-config button.bright {
+    font-size: 1.1em;
+    padding: 10px 20px;
+}
+
+.hide-hotbar-config button i {
+    margin-right: 5px;
+}
+
+/* Notes */
+.hide-hotbar-config .notes {
+    font-size: 0.9em;
+    color: #999;
+    font-style: italic;
+}
+
+/* Footer */
+.hide-hotbar-config .form-footer {
+    text-align: center;
+    padding-top: 15px;
+    border-top: 2px solid #8b4513;
+}
+
+/* Macro Directory Button */
+.rnk-hide-em-config {
+    width: 100%;
+    margin-top: 5px;
+    background: linear-gradient(135deg, #6b4423 0%, #8b4513 50%, #5a3a1a 100%);
+    border: none;
+    color: #e8dcc4;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.rnk-htm-config:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(107, 68, 35, 0.5);
+}
