@@ -98,7 +98,7 @@ rnk-hide-em/
 ## Submission Steps
 
 ### 1. GitHub Repository
-- Repository: https://github.com/Odinn-1982/rnk-hide-em
+- Repository: https://github.com/RNK-Enterprise/rnk-hide-em
 - Ensure all files pushed to main branch
 - Create release tag: v2.0.0
 - Generate release with changelog
@@ -110,7 +110,7 @@ rnk-hide-em/
 4. Fill in details:
    - **Package ID:** rnk-hide-em
    - **Title:** RNK Hide 'Em
-   - **Manifest URL:** https://raw.githubusercontent.com/Odinn-1982/rnk-hide-em/main/module.json
+   - **Manifest URL:** https://raw.githubusercontent.com/RNK-Enterprise/rnk-hide-em/main/module.json
    - **Category:** Interface Enhancements
    - **Tags:** hotbar, ui, customization, animation
 5. Submit for review

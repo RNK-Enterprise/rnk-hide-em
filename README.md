@@ -81,7 +81,7 @@ The module is fully localized in the following languages:
 *Note: The module automatically uses your Foundry VTT language setting. Additional community translations welcome!*
 
 ## Installation
-1. Copy this Manifest URL: `https://raw.githubusercontent.com/Odinn-1982/rnk-hide-em/main/module.json`
+1. Copy this Manifest URL: `https://raw.githubusercontent.com/RNK-Enterprise/rnk-hide-em/main/module.json`
 2. In Foundry VTT, go to the **Add-on Modules** tab.
 3. Click **Install Module**.
 4. Paste the URL into the **Manifest URL** field.

@@ -10,23 +10,53 @@ import { getSetting, updateStyleElement, getSlotsForPage, log } from "./utils.js
  * Update hotbar styles based on current settings
  */
 export function updateHotbarStyles() {
-  const hiddenSlots = getSetting(SETTINGS.HIDDEN_SLOTS);
-  const hideBackground = getSetting(SETTINGS.HIDE_BACKGROUND);
+  const perPlayerSettings = getSetting(SETTINGS.PER_PLAYER_SETTINGS) || {};
+  const currentUserId = game.user.id;
+  const isGM = game.user.isGM;
+  
+  // Check if current user has per-player settings
+  const playerSettings = perPlayerSettings[currentUserId];
+  
+  // Use per-player settings if available, otherwise fall back to global settings
+  let hiddenSlots, hideBackground, hideLeftControls, hideRightControls, hideSidebar;
+  let hideSceneControls, hideEntireHotbar, hideChat, hidePlayers, hideSceneNavigation;
+  let hiddenPages, hiddenSidebarTabs;
+  
+  if (playerSettings && !isGM) {
+    // Use per-player settings for this player
+    hiddenSlots = playerSettings.hiddenSlots || {};
+    hideBackground = playerSettings.hideBackground;
+    hideLeftControls = playerSettings.hideLeftControls;
+    hideRightControls = playerSettings.hideRightControls;
+    hideSidebar = playerSettings.hideSidebar;
+    hideSceneControls = playerSettings.hideSceneControls;
+    hideEntireHotbar = playerSettings.hideEntireHotbar;
+    hideChat = playerSettings.hideChat;
+    hidePlayers = playerSettings.hidePlayers;
+    hideSceneNavigation = playerSettings.hideSceneNavigation;
+    hiddenPages = playerSettings.hiddenPages || [];
+    hiddenSidebarTabs = playerSettings.hiddenSidebarTabs || [];
+  } else {
+    // Use global settings
+    hiddenSlots = getSetting(SETTINGS.HIDDEN_SLOTS);
+    hideBackground = getSetting(SETTINGS.HIDE_BACKGROUND);
+    hideLeftControls = getSetting(SETTINGS.HIDE_LEFT_CONTROLS);
+    hideRightControls = getSetting(SETTINGS.HIDE_RIGHT_CONTROLS);
+    hideSidebar = getSetting(SETTINGS.HIDE_SIDEBAR);
+    hideSceneControls = getSetting(SETTINGS.HIDE_SCENE_CONTROLS);
+    hideEntireHotbar = getSetting(SETTINGS.HIDE_ENTIRE_HOTBAR);
+    hideChat = getSetting(SETTINGS.HIDE_CHAT);
+    hidePlayers = getSetting(SETTINGS.HIDE_PLAYERS);
+    hideSceneNavigation = getSetting(SETTINGS.HIDE_SCENE_NAVIGATION);
+    hiddenPages = getSetting(SETTINGS.HIDDEN_PAGES);
+    hiddenSidebarTabs = getSetting(SETTINGS.HIDDEN_SIDEBAR_TABS) || [];
+  }
+  
   const applyToGM = getSetting(SETTINGS.APPLY_TO_GM);
-  const hideLeftControls = getSetting(SETTINGS.HIDE_LEFT_CONTROLS);
-  const hideRightControls = getSetting(SETTINGS.HIDE_RIGHT_CONTROLS);
-  const hideSidebar = getSetting(SETTINGS.HIDE_SIDEBAR);
-  const hideSceneControls = getSetting(SETTINGS.HIDE_SCENE_CONTROLS);
-  const hideEntireHotbar = getSetting(SETTINGS.HIDE_ENTIRE_HOTBAR);
-  const hideChat = getSetting(SETTINGS.HIDE_CHAT);
-  const hidePlayers = getSetting(SETTINGS.HIDE_PLAYERS);
-  const hideSceneNavigation = getSetting(SETTINGS.HIDE_SCENE_NAVIGATION);
-  const hiddenSidebarTabs = getSetting(SETTINGS.HIDDEN_SIDEBAR_TABS) || [];
   const opacity = getSetting(SETTINGS.OPACITY);
   const animationDuration = getSetting(SETTINGS.ANIMATION_DURATION);
-  const hiddenPages = getSetting(SETTINGS.HIDDEN_PAGES);
 
-  log(`Updating styles. GM: ${game.user.isGM}, ApplyToGM: ${applyToGM}, Scene Controls hidden: ${hideSceneControls}, Entire Hotbar hidden: ${hideEntireHotbar}, Chat hidden: ${hideChat}, Players hidden: ${hidePlayers}`);
+  log(`Updating styles. GM: ${isGM}, ApplyToGM: ${applyToGM}, Using per-player: ${!!playerSettings}, Scene Controls hidden: ${hideSceneControls}, Entire Hotbar hidden: ${hideEntireHotbar}, Chat hidden: ${hideChat}, Players hidden: ${hidePlayers}`);
 
   let css = `
     /* Animation transitions */
@@ -40,7 +70,7 @@ export function updateHotbarStyles() {
   `;
 
   // Hide entire hotbar if enabled (applies to everyone or only non-GM)
-  if (hideEntireHotbar && (!game.user.isGM || applyToGM)) {
+  if (hideEntireHotbar && (!isGM || applyToGM)) {
     css += `
       #hotbar {
         opacity: 0 !important;
@@ -67,7 +97,7 @@ export function updateHotbarStyles() {
   }
 
   // Apply slot/page hiding and opacity (only for non-GM or if applyToGM is true)
-  if (!game.user.isGM || applyToGM) {
+  if (!isGM || applyToGM) {
     // Hide individual slots
     for (const [slot, hidden] of Object.entries(hiddenSlots)) {
       if (hidden) {

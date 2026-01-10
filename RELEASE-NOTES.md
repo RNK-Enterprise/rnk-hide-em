@@ -1,10 +1,19 @@
-# RNK Hide 'Em v2.0.0 - Release Notes
+# RNK Hide 'Em v2.0.1 - Release Notes
 
 ## Package Information
 - **Module ID:** rnk-hide-em
-- **Version:** 2.0.0
+- **Version:** 2.0.1
 - **Foundry VTT Compatibility:** v13
-- **Release Date:** January 6, 2026
+- **Release Date:** January 10, 2026
+
+## Changelog
+### v2.0.1
+- Updates and improvements to existing functionality
+- Maintenance release with bug fixes and optimizations
+
+### v2.0.0 (Previous Release)
+- Initial major release
+- Advanced hotbar customization features
 
 ## Test Coverage
 - **Lines:** 96.75% (418/432)
@@ -63,13 +72,13 @@
 1. Open Foundry VTT
 2. Navigate to Add-on Modules
 3. Click "Install Module"
-4. Paste manifest URL: https://raw.githubusercontent.com/Odinn-1982/rnk-hide-em/main/module.json
+4. Paste manifest URL: https://raw.githubusercontent.com/RNK-Enterprise/rnk-hide-em/main/module.json
 5. Click "Install"
 
 ## Support
 - **Author:** Asgard Innovations / RNK™
-- **GitHub:** https://github.com/Odinn-1982/rnk-hide-em
-- **Issues:** https://github.com/Odinn-1982/rnk-hide-em/issues
+- **GitHub:** https://github.com/RNK-Enterprise/rnk-hide-em
+- **Issues:** https://github.com/RNK-Enterprise/rnk-hide-em/issues
 
 ---
 

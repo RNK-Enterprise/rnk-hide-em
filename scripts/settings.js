@@ -101,6 +101,15 @@ export function registerSettings() {
     onChange: () => updateHotbarStyles()
   });
 
+  // Per-player settings
+  game.settings.register(MODULE_ID, SETTINGS.PER_PLAYER_SETTINGS, {
+    scope: "world",
+    config: false,
+    type: Object,
+    default: DEFAULTS.PER_PLAYER_SETTINGS,
+    onChange: () => updateHotbarStyles()
+  });
+
   // Hide scene navigation
   game.settings.register(MODULE_ID, SETTINGS.HIDE_SCENE_NAVIGATION, {
     scope: "world",

@@ -21,9 +21,9 @@ export class HideHotbarConfig extends FormApplication {
       closeOnSubmit: true,
       tabs: [
         {
-          navSelector: ".tabs",
+          navSelector: ".main-tabs",
           contentSelector: ".content",
-          initial: "slots"
+          initial: "gm"
         }
       ]
     });
@@ -47,6 +47,7 @@ export class HideHotbarConfig extends FormApplication {
     const hiddenPages = getSetting(SETTINGS.HIDDEN_PAGES);
     const presets = getSetting(SETTINGS.PRESETS);
     const activePreset = getSetting(SETTINGS.ACTIVE_PRESET);
+    const perPlayerSettings = getSetting(SETTINGS.PER_PLAYER_SETTINGS) || {};
     
     log(`getData: hiddenSidebarTabs from settings: ${hiddenSidebarTabs.join(", ")}`);
 
@@ -81,16 +82,26 @@ export class HideHotbarConfig extends FormApplication {
       { id: "cards", label: "Card Stacks", icon: "fas fa-cards" },
       { id: "playlists", label: "Audio Playlists", icon: "fas fa-music" },
       { id: "compendium", label: "Compendium Packs", icon: "fas fa-atlas" },
-      { id: "settings", label: "Game Settings", icon: "fas fa-cogs" }
+      { id: "settings", label: "Game Settings", icon: "fas fa-cogs" },
+      { id: "macros", label: "Macro Directory", icon: "fas fa-code" }
     ].map(tab => ({
       ...tab,
       hidden: hiddenSidebarTabs.includes(tab.id)
+    }));
+
+    // Build players array with their settings
+    const players = game.users.filter(u => !u.isGM).map(user => ({
+      id: user.id,
+      name: user.name,
+      color: user.color,
+      settings: perPlayerSettings[user.id] || {}
     }));
 
     return {
       slots,
       pages,
       sidebarTabs,
+      players,
       hideBackground,
       applyToGM,
       hideLeftControls,
@@ -127,6 +138,11 @@ export class HideHotbarConfig extends FormApplication {
     // Export/Import
     html.find(".export-config").click(() => this._exportConfig());
     html.find(".import-config").click(() => this._importConfig());
+
+    // Per-player controls
+    html.find(".select-all-player-slots").click((ev) => this._selectAllPlayerSlots(ev, html, true));
+    html.find(".select-none-player-slots").click((ev) => this._selectAllPlayerSlots(ev, html, false));
+    html.find(".page-checkbox-player").change((ev) => this._onPlayerPageCheckboxChange(ev, html));
   }
 
   _selectAllSlots(html, select) {
@@ -140,6 +156,22 @@ export class HideHotbarConfig extends FormApplication {
     
     slots.forEach(slot => {
       html.find(`input[name='slot-${slot}']`).prop("checked", checked);
+    });
+  }
+
+  _selectAllPlayerSlots(event, html, select) {
+    const playerId = $(event.target).data("player");
+    html.find(`input[name^='player-${playerId}-slot-']`).prop("checked", select);
+  }
+
+  _onPlayerPageCheckboxChange(event, html) {
+    const playerId = $(event.target).data("player");
+    const page = parseInt($(event.target).data("page"));
+    const checked = event.target.checked;
+    const slots = Array.from({ length: 10 }, (_, i) => (page - 1) * 10 + i + 1);
+    
+    slots.forEach(slot => {
+      html.find(`input[name='player-${playerId}-slot-${slot}']`).prop("checked", checked);
     });
   }
 
@@ -274,6 +306,7 @@ export class HideHotbarConfig extends FormApplication {
       const hiddenSlots = {};
       const hiddenPages = [];
       const hiddenSidebarTabs = [];
+      const perPlayerSettings = {};
 
       // Process slots
       for (let i = 1; i <= HOTBAR.MAX_SLOTS; i++) {
@@ -297,6 +330,49 @@ export class HideHotbarConfig extends FormApplication {
         }
       });
 
+      // Process per-player settings
+      game.users.filter(u => !u.isGM).forEach(user => {
+        const playerSettings = {
+          hideSceneControls: formData[`player-${user.id}-hideSceneControls`] || false,
+          hideSidebar: formData[`player-${user.id}-hideSidebar`] || false,
+          hideEntireHotbar: formData[`player-${user.id}-hideEntireHotbar`] || false,
+          hideBackground: formData[`player-${user.id}-hideBackground`] || false,
+          hideLeftControls: formData[`player-${user.id}-hideLeftControls`] || false,
+          hideRightControls: formData[`player-${user.id}-hideRightControls`] || false,
+          hideChat: formData[`player-${user.id}-hideChat`] || false,
+          hidePlayers: formData[`player-${user.id}-hidePlayers`] || false,
+          hideSceneNavigation: formData[`player-${user.id}-hideSceneNavigation`] || false,
+          hiddenSlots: {},
+          hiddenPages: [],
+          hiddenSidebarTabs: []
+        };
+
+        // Process player-specific slots
+        for (let i = 1; i <= HOTBAR.MAX_SLOTS; i++) {
+          if (formData[`player-${user.id}-slot-${i}`]) {
+            playerSettings.hiddenSlots[i] = true;
+          }
+        }
+
+        // Process player-specific pages
+        for (let i = 1; i <= HOTBAR.MAX_PAGES; i++) {
+          if (formData[`player-${user.id}-page-${i}`]) {
+            playerSettings.hiddenPages.push(i);
+          }
+        }
+
+        // Process player-specific sidebar tabs
+        const sidebarTabIds = ["chat", "combat", "scenes", "actors", "items", "journal", "tables", "cards", "playlists", "compendium", "settings"];
+        sidebarTabIds.forEach(id => {
+          const key = `player-${user.id}-sidebar-tab-${id}`;
+          if (formData[key]) {
+            playerSettings.hiddenSidebarTabs.push(id);
+          }
+        });
+
+        perPlayerSettings[user.id] = playerSettings;
+      });
+
       log(`Saving settings. FormData:`, "log");
       console.log(formData);
       log(`Hidden tabs to save: ${hiddenSidebarTabs.join(", ")}`);
@@ -316,6 +392,7 @@ export class HideHotbarConfig extends FormApplication {
       await setSetting(SETTINGS.OPACITY, parseInt(formData.opacity) || 100);
       await setSetting(SETTINGS.ANIMATION_DURATION, parseInt(formData.animationDuration) || 300);
       await setSetting(SETTINGS.HIDDEN_PAGES, hiddenPages);
+      await setSetting(SETTINGS.PER_PLAYER_SETTINGS, perPlayerSettings);
       
       updateHotbarStyles();
       notify("Settings saved!", "info");

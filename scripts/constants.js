@@ -18,12 +18,14 @@ export const SETTINGS = {
   HIDE_CHAT: "hideChat",
   HIDE_PLAYERS: "hidePlayers",
   HIDE_SCENE_NAVIGATION: "hideSceneNavigation",
+  HIDE_MACRO_DIRECTORY: "hideMacroDirectory",
   HIDDEN_SIDEBAR_TABS: "hiddenSidebarTabs",
   OPACITY: "slotOpacity",
   ANIMATION_DURATION: "animationDuration",
   PRESETS: "presets",
   ACTIVE_PRESET: "activePreset",
-  HIDDEN_PAGES: "hiddenPages"
+  HIDDEN_PAGES: "hiddenPages",
+  PER_PLAYER_SETTINGS: "perPlayerSettings"
 };
 
 export const DEFAULTS = {
@@ -38,12 +40,14 @@ export const DEFAULTS = {
   HIDE_CHAT: false,
   HIDE_PLAYERS: false,
   HIDE_SCENE_NAVIGATION: false,
+  HIDE_MACRO_DIRECTORY: false,
   HIDDEN_SIDEBAR_TABS: [],
   OPACITY: 100,
   ANIMATION_DURATION: 300,
   PRESETS: [],
   ACTIVE_PRESET: null,
-  HIDDEN_PAGES: []
+  HIDDEN_PAGES: [],
+  PER_PLAYER_SETTINGS: {}
 };
 
 export const HOTBAR = {
