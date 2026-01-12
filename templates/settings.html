@@ -1,0 +1,366 @@
+<form autocomplete="off" class="hide-hotbar-config">
+    <!-- Logo Header -->
+    <div class="rnk-header">
+        <img src="{{logoUrl}}" alt="RNK Logo" class="rnk-logo">
+        <h2>RNK Hide 'Em</h2>
+    </div>
+
+    <!-- Main Tabs Navigation -->
+    <nav class="tabs main-tabs" data-group="primary-tabs">
+        <a class="item gm-tab" data-tab="gm"><i class="fas fa-user-shield"></i> GM Settings</a>
+        {{#each players}}
+        <a class="item player-tab" data-tab="player-{{this.id}}" style="border-left: 3px solid {{this.color}};">
+            <i class="fas fa-user"></i> {{this.name}}
+        </a>
+        {{/each}}
+    </nav>
+
+    <div class="content">
+        <!-- GM Settings Tab -->
+        <div class="tab gm-settings" data-tab="gm">
+            <h3 class="section-header"><i class="fas fa-cog"></i> Global Settings</h3>
+            <p class="notes">These settings apply to all players unless overridden by individual player settings below.</p>
+            
+            <!-- General Settings Section -->
+            <div class="settings-section">
+                <h4><i class="fas fa-sliders-h"></i> General Options</h4>
+                
+                <div class="form-group">
+                    <label>Hide Hotbar Background</label>
+                    <div class="form-fields">
+                        <input type="checkbox" name="hideBackground" {{checked hideBackground}}>
+                    </div>
+                    <p class="notes">Removes the background and box shadow from the hotbar.</p>
+                </div>
+
+                <div class="form-group">
+                    <label>Apply to GM</label>
+                    <div class="form-fields">
+                        <input type="checkbox" name="applyToGM" {{checked applyToGM}}>
+                    </div>
+                    <p class="notes">If enabled, settings will also affect the GM view (useful for testing).</p>
+                </div>
+
+                <div class="form-group">
+                    <label>Opacity (%)</label>
+                    <div class="form-fields">
+                        <input type="range" name="opacity" min="0" max="100" step="5" value="{{opacity}}">
+                        <span class="range-value">{{opacity}}%</span>
+                    </div>
+                    <p class="notes">Set transparency level for visible hotbar slots (100% = fully visible).</p>
+                </div>
+
+                <div class="form-group">
+                    <label>Animation Duration (ms)</label>
+                    <div class="form-fields">
+                        <input type="range" name="animationDuration" min="0" max="1000" step="50" value="{{animationDuration}}">
+                        <span class="range-value">{{animationDuration}}ms</span>
+                    </div>
+                    <p class="notes">How long animations take when hiding/showing elements (0 = instant).</p>
+                </div>
+            </div>
+
+            <!-- UI Elements Section -->
+            <div class="settings-section">
+                <h4><i class="fas fa-eye-slash"></i> UI Elements</h4>
+                
+                <div class="ui-grid">
+                    <div class="form-group">
+                        <label>Hide Scene Controls</label>
+                        <input type="checkbox" name="hideSceneControls" {{checked hideSceneControls}}>
+                        <p class="notes">Left-side scene controls</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Hide Sidebar</label>
+                        <input type="checkbox" name="hideSidebar" {{checked hideSidebar}}>
+                        <p class="notes">Right sidebar (Chat, Combat, etc.)</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Hide Entire Hotbar</label>
+                        <input type="checkbox" name="hideEntireHotbar" {{checked hideEntireHotbar}}>
+                        <p class="notes">Complete hotbar</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Hide Left Controls</label>
+                        <input type="checkbox" name="hideLeftControls" {{checked hideLeftControls}}>
+                        <p class="notes">Directory controls</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Hide Right Controls</label>
+                        <input type="checkbox" name="hideRightControls" {{checked hideRightControls}}>
+                        <p class="notes">Page controls</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Hide Chat</label>
+                        <input type="checkbox" name="hideChat" {{checked hideChat}}>
+                        <p class="notes">Chat box</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Hide Players List</label>
+                        <input type="checkbox" name="hidePlayers" {{checked hidePlayers}}>
+                        <p class="notes">Player list</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Hide Scene Navigation</label>
+                        <input type="checkbox" name="hideSceneNavigation" {{checked hideSceneNavigation}}>
+                        <p class="notes">Top scene navigation</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Hide Macro Directory</label>
+                        <input type="checkbox" name="hideMacroDirectory" {{checked hideMacroDirectory}}>
+                        <p class="notes">Macro directory sidebar control</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar Tabs Section -->
+            <div class="settings-section">
+                <h4><i class="fas fa-columns"></i> Sidebar Tabs</h4>
+                <p class="notes">Select individual sidebar tabs to hide.</p>
+                
+                <div class="sidebar-tabs-grid">
+                    {{#each sidebarTabs}}
+                    <div class="form-group">
+                        <label for="sidebar-tab-{{this.id}}">
+                            <i class="{{this.icon}}"></i> {{this.label}}
+                        </label>
+                        <input type="checkbox" name="sidebar-tab-{{this.id}}" id="sidebar-tab-{{this.id}}" {{checked this.hidden}}>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+
+            <!-- Hotbar Slots Section -->
+            <div class="settings-section">
+                <h4><i class="fas fa-th"></i> Hotbar Slots</h4>
+                
+                <div class="button-group">
+                    <button type="button" class="select-all-slots"><i class="fas fa-check-square"></i> Select All</button>
+                    <button type="button" class="select-none-slots"><i class="fas fa-square"></i> Clear All</button>
+                </div>
+
+                <div class="grid-layout">
+                    {{#each slots}}
+                    <div class="slot-checkbox" data-page="{{this.page}}">
+                        <input type="checkbox" name="slot-{{this.n}}" id="slot-{{this.n}}" {{checked this.hidden}}>
+                        <label for="slot-{{this.n}}">{{this.n}}</label>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+
+            <!-- Hotbar Pages Section -->
+            <div class="settings-section">
+                <h4><i class="fas fa-file"></i> Hotbar Pages</h4>
+                <p class="notes">Hide entire hotbar pages at once (10 slots per page).</p>
+                
+                <div class="pages-grid">
+                    {{#each pages}}
+                    <div class="page-checkbox">
+                        <input type="checkbox" class="page-checkbox" name="page-{{this.n}}" id="page-{{this.n}}" 
+                               data-page="{{this.n}}" {{checked this.hidden}}>
+                        <label for="page-{{this.n}}">
+                            Page {{this.n}} <span class="page-range">(Slots {{math (subtract (multiply this.n 10) 9)}} - {{multiply this.n 10}})</span>
+                        </label>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+
+            <!-- Presets Section -->
+            <div class="settings-section">
+                <h4><i class="fas fa-save"></i> Presets</h4>
+                <p class="notes">Save and load preset configurations.</p>
+                
+                <div class="preset-controls">
+                    <div class="form-group">
+                        <label>Load Preset</label>
+                        <div class="form-fields">
+                            <select name="load-preset">
+                                <option value="-1">-- Select Preset --</option>
+                                {{#each presets}}
+                                <option value="{{@index}}" {{#if this.builtIn}}data-builtin="true"{{/if}}>
+                                    {{this.name}} {{#if this.builtIn}}(Built-in){{/if}}
+                                </option>
+                                {{/each}}
+                            </select>
+                            <button type="button" class="delete-preset"><i class="fas fa-trash"></i> Delete</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Save Current As Preset</label>
+                        <div class="form-fields">
+                            <button type="button" class="save-preset"><i class="fas fa-save"></i> Save New Preset</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="preset-info">
+                    <p><strong>Active Preset:</strong> {{#if activePreset}}{{activePreset}}{{else}}<em>None</em>{{/if}}</p>
+                </div>
+            </div>
+
+            <!-- Advanced Section -->
+            <div class="settings-section">
+                <h4><i class="fas fa-cogs"></i> Advanced</h4>
+                <p class="notes">Import, export, and share configurations.</p>
+                
+                <div class="form-group">
+                    <label>Export Configuration</label>
+                    <div class="form-fields">
+                        <button type="button" class="export-config"><i class="fas fa-download"></i> Export to File</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Import Configuration</label>
+                    <div class="form-fields">
+                        <button type="button" class="import-config"><i class="fas fa-upload"></i> Import from File</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Player-Specific Tabs -->
+        {{#each players}}
+        <div class="tab player-settings" data-tab="player-{{this.id}}">
+            <h3 class="section-header" style="border-left: 4px solid {{this.color}};">
+                <i class="fas fa-user"></i> Settings for {{this.name}}
+            </h3>
+            <p class="notes">Configure individual visibility settings for this player. These settings override global GM settings.</p>
+            
+            <!-- UI Elements Section -->
+            <div class="settings-section">
+                <h4><i class="fas fa-eye-slash"></i> UI Elements</h4>
+                
+                <div class="ui-grid">
+                    <div class="form-group">
+                        <label for="player-{{this.id}}-hideSceneControls">Hide Scene Controls</label>
+                        <input type="checkbox" name="player-{{this.id}}-hideSceneControls" id="player-{{this.id}}-hideSceneControls" {{checked this.settings.hideSceneControls}}>
+                        <p class="notes">Left-side scene controls</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="player-{{this.id}}-hideSidebar">Hide Sidebar</label>
+                        <input type="checkbox" name="player-{{this.id}}-hideSidebar" id="player-{{this.id}}-hideSidebar" {{checked this.settings.hideSidebar}}>
+                        <p class="notes">Right sidebar</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="player-{{this.id}}-hideEntireHotbar">Hide Entire Hotbar</label>
+                        <input type="checkbox" name="player-{{this.id}}-hideEntireHotbar" id="player-{{this.id}}-hideEntireHotbar" {{checked this.settings.hideEntireHotbar}}>
+                        <p class="notes">Complete hotbar</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="player-{{this.id}}-hideBackground">Hide Hotbar Background</label>
+                        <input type="checkbox" name="player-{{this.id}}-hideBackground" id="player-{{this.id}}-hideBackground" {{checked this.settings.hideBackground}}>
+                        <p class="notes">Hotbar background</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="player-{{this.id}}-hideLeftControls">Hide Left Controls</label>
+                        <input type="checkbox" name="player-{{this.id}}-hideLeftControls" id="player-{{this.id}}-hideLeftControls" {{checked this.settings.hideLeftControls}}>
+                        <p class="notes">Directory controls</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="player-{{this.id}}-hideRightControls">Hide Right Controls</label>
+                        <input type="checkbox" name="player-{{this.id}}-hideRightControls" id="player-{{this.id}}-hideRightControls" {{checked this.settings.hideRightControls}}>
+                        <p class="notes">Page controls</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="player-{{this.id}}-hideChat">Hide Chat</label>
+                        <input type="checkbox" name="player-{{this.id}}-hideChat" id="player-{{this.id}}-hideChat" {{checked this.settings.hideChat}}>
+                        <p class="notes">Chat box</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="player-{{this.id}}-hidePlayers">Hide Players List</label>
+                        <input type="checkbox" name="player-{{this.id}}-hidePlayers" id="player-{{this.id}}-hidePlayers" {{checked this.settings.hidePlayers}}>
+                        <p class="notes">Player list</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="player-{{this.id}}-hideSceneNavigation">Hide Scene Navigation</label>
+                        <input type="checkbox" name="player-{{this.id}}-hideSceneNavigation" id="player-{{this.id}}-hideSceneNavigation" {{checked this.settings.hideSceneNavigation}}>
+                        <p class="notes">Top scene nav</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar Tabs Section -->
+            <div class="settings-section">
+                <h4><i class="fas fa-columns"></i> Sidebar Tabs</h4>
+                <p class="notes">Select which sidebar tabs to hide for this player.</p>
+                
+                <div class="sidebar-tabs-grid">
+                    {{#each ../sidebarTabs}}
+                    <div class="form-group">
+                        <label for="player-{{../this.id}}-sidebar-tab-{{this.id}}">
+                            <i class="{{this.icon}}"></i> {{this.label}}
+                        </label>
+                        <input type="checkbox" name="player-{{../this.id}}-sidebar-tab-{{this.id}}" id="player-{{../this.id}}-sidebar-tab-{{this.id}}">
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+
+            <!-- Hotbar Slots Section -->
+            <div class="settings-section">
+                <h4><i class="fas fa-th"></i> Hotbar Slots</h4>
+                
+                <div class="button-group">
+                    <button type="button" class="select-all-player-slots" data-player="{{this.id}}">
+                        <i class="fas fa-check-square"></i> Select All
+                    </button>
+                    <button type="button" class="select-none-player-slots" data-player="{{this.id}}">
+                        <i class="fas fa-square"></i> Clear All
+                    </button>
+                </div>
+
+                <div class="grid-layout">
+                    {{#each ../slots}}
+                    <div class="slot-checkbox">
+                        <input type="checkbox" name="player-{{../this.id}}-slot-{{this.n}}" id="player-{{../this.id}}-slot-{{this.n}}">
+                        <label for="player-{{../this.id}}-slot-{{this.n}}">{{this.n}}</label>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+
+            <!-- Hotbar Pages Section -->
+            <div class="settings-section">
+                <h4><i class="fas fa-file"></i> Hotbar Pages</h4>
+                <p class="notes">Hide entire pages (10 slots per page) for this player.</p>
+                
+                <div class="pages-grid">
+                    {{#each ../pages}}
+                    <div class="page-checkbox">
+                        <input type="checkbox" class="page-checkbox-player" name="player-{{../this.id}}-page-{{this.n}}" 
+                               id="player-{{../this.id}}-page-{{this.n}}" data-page="{{this.n}}" data-player="{{../this.id}}">
+                        <label for="player-{{../this.id}}-page-{{this.n}}">
+                            Page {{this.n}} <span class="page-range">(Slots {{math (subtract (multiply this.n 10) 9)}} - {{multiply this.n 10}})</span>
+                        </label>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    
+    <footer class="form-footer">
+        <button type="submit" class="bright"><i class="fas fa-save"></i> Save Settings</button>
+    </footer>
+</form>

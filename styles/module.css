@@ -1,0 +1,512 @@
+/**
+ * Copyright © 2025 Asgard Innovations / RNK™
+ * All Rights Reserved
+ */
+
+:root {
+    --rnk-toxic-green: #39ff14;
+    --rnk-dark-green: #1a7a0d;
+    --rnk-brown: #8b4513;
+    --rnk-dark-brown: #5a3a1a;
+    --rnk-light-tan: #e8dcc4;
+    --rnk-tan: #a0826d;
+}
+
+/* Window Background Override (kill Foundry parchment) */
+#hide-hotbar-config,
+#hide-hotbar-config.window-app,
+.hide-hotbar-config,
+.hide-hotbar-config.window-app {
+    background: #0a0a0a !important;
+    background-image: none !important;
+}
+
+#hide-hotbar-config .window-content,
+#hide-hotbar-config.window-app .window-content,
+.hide-hotbar-config .window-content {
+    background: #0a0a0a !important;
+    background-image: none !important;
+}
+
+/* Logo Header */
+.hide-hotbar-config .rnk-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+    border: 2px solid var(--rnk-toxic-green);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.3);
+}
+
+.hide-hotbar-config .rnk-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid var(--rnk-toxic-green);
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.5);
+}
+
+.hide-hotbar-config .rnk-header h2 {
+    color: var(--rnk-toxic-green);
+    margin: 0;
+    font-size: 1.5em;
+    text-shadow: 0 0 10px rgba(57, 255, 20, 0.8);
+}
+
+/* Main Tabs */
+.hide-hotbar-config nav.main-tabs {
+    border-bottom: 3px solid var(--rnk-toxic-green);
+    margin-bottom: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 5px;
+    border-radius: 5px 5px 0 0;
+}
+
+.hide-hotbar-config nav.main-tabs .item,
+.hide-hotbar-config .sheet-tabs .item,
+.hide-hotbar-config .tabs .item {
+    background: rgba(26, 26, 26, 0.9) !important;
+    border: 2px solid #444 !important;
+    color: #e0e0e0 !important;
+    transition: all 0.3s ease;
+    padding: 8px 15px;
+    margin: 0 3px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.8) !important;
+}
+
+.hide-hotbar-config nav.main-tabs .item:hover,
+.hide-hotbar-config .sheet-tabs .item:hover,
+.hide-hotbar-config .tabs .item:hover {
+    background: rgba(57, 255, 20, 0.2) !important;
+    border-color: var(--rnk-toxic-green) !important;
+    color: var(--rnk-toxic-green) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.4);
+    text-shadow: 0 0 8px rgba(57, 255, 20, 0.6) !important;
+}
+
+.hide-hotbar-config nav.main-tabs .item.active,
+.hide-hotbar-config .sheet-tabs .item.active,
+.hide-hotbar-config .tabs .item.active {
+    background: linear-gradient(135deg, rgba(57, 255, 20, 0.3) 0%, rgba(57, 255, 20, 0.15) 100%) !important;
+    border-color: var(--rnk-toxic-green) !important;
+    color: var(--rnk-toxic-green) !important;
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.6), inset 0 0 10px rgba(57, 255, 20, 0.2);
+    text-shadow: 0 0 10px rgba(57, 255, 20, 0.8) !important;
+}
+
+.hide-hotbar-config nav.main-tabs .item.gm-tab {
+    border-left: 4px solid #ffd700;
+}
+
+.hide-hotbar-config nav.main-tabs .item.player-tab {
+    border-left-width: 3px;
+}
+
+/* Content Area */
+.hide-hotbar-config .content {
+    background: rgba(10, 10, 10, 0.98);
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid var(--rnk-toxic-green);
+}
+
+/* Section Headers */
+.hide-hotbar-config .section-header {
+    color: var(--rnk-toxic-green);
+    font-size: 1.3em;
+    margin: 15px 0 10px 0;
+    padding: 10px;
+    background: linear-gradient(90deg, rgba(57, 255, 20, 0.2) 0%, transparent 100%);
+    border-left: 4px solid var(--rnk-toxic-green);
+    text-shadow: 0 0 8px rgba(57, 255, 20, 0.6);
+}
+
+.hide-hotbar-config .settings-section {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+    border: 1px solid rgba(57, 255, 20, 0.3);
+}
+
+.hide-hotbar-config .settings-section h4 {
+    color: var(--rnk-toxic-green);
+    font-size: 1.1em;
+    margin: 0 0 10px 0;
+    padding-bottom: 5px;
+    border-bottom: 2px solid rgba(57, 255, 20, 0.4);
+}
+
+/* Form Groups */
+.hide-hotbar-config .form-group {
+    margin: 10px 0;
+}
+
+.hide-hotbar-config .form-group label {
+    color: #ffffff;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.hide-hotbar-config .notes {
+    color: #cccccc;
+    font-size: 0.9em;
+    font-style: italic;
+    margin: 5px 0;
+}
+
+/* UI Grid Layout */
+.hide-hotbar-config .ui-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.hide-hotbar-config .ui-grid .form-group {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(57, 255, 20, 0.2);
+}
+
+/* Grid Layout */
+.hide-hotbar-config .grid-layout {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 8px;
+    margin: 15px 0;
+}
+
+.hide-hotbar-config .slot-checkbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--rnk-toxic-green);
+    padding: 8px;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.8);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.hide-hotbar-config .slot-checkbox:hover {
+    background: rgba(57, 255, 20, 0.2);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.6);
+}
+
+.hide-hotbar-config .slot-checkbox label {
+    font-weight: bold;
+    color: #ffffff;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.hide-hotbar-config .slot-checkbox input[type="checkbox"] {
+    cursor: pointer;
+}
+
+.hide-hotbar-config .slot-checkbox input[type="checkbox"]:checked ~ label {
+    color: var(--rnk-toxic-green);
+    text-shadow: 0 0 8px rgba(57, 255, 20, 0.8);
+}
+
+/* Pages Grid */
+.hide-hotbar-config .pages-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.hide-hotbar-config .page-checkbox {
+    padding: 15px;
+    border: 2px solid rgba(57, 255, 20, 0.4);
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.4);
+    transition: all 0.2s ease;
+}
+
+.hide-hotbar-config .page-checkbox:hover {
+    background: rgba(57, 255, 20, 0.15);
+    border-color: var(--rnk-toxic-green);
+    transform: translateX(5px);
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.4);
+}
+
+.hide-hotbar-config .page-checkbox label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: var(--rnk-light-tan);
+}
+
+.hide-hotbar-config .page-checkbox input[type="checkbox"]:checked ~ label {
+    color: var(--rnk-toxic-green);
+}
+
+.hide-hotbar-config .page-range {
+    color: #cccccc;
+    font-size: 0.9em;
+}
+
+/* Sidebar Tabs Grid */
+.hide-hotbar-config .sidebar-tabs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.hide-hotbar-config .sidebar-tabs-grid .form-group {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    border: 1px solid rgba(57, 255, 20, 0.3);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hide-hotbar-config .sidebar-tabs-grid .form-group:hover {
+    background: rgba(57, 255, 20, 0.1);
+    border-color: var(--rnk-toxic-green);
+}
+
+.hide-hotbar-config .sidebar-tabs-grid label {
+    color: var(--rnk-light-tan);
+    cursor: pointer;
+}
+
+.hide-hotbar-config .sidebar-tabs-grid input[type="checkbox"]:checked ~ label {
+    color: var(--rnk-toxic-green);
+}
+
+/* Button Group */
+.hide-hotbar-config .button-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.hide-hotbar-config .button-group button {
+    flex: 1;
+    background: linear-gradient(135deg, var(--rnk-dark-green) 0%, #0d4a06 100%);
+    border: 2px solid var(--rnk-toxic-green);
+    color: var(--rnk-toxic-green);
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hide-hotbar-config .button-group button:hover {
+    background: linear-gradient(135deg, #0d4a06 0%, var(--rnk-dark-green) 100%);
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.6);
+    transform: translateY(-2px);
+}
+
+/* Range Inputs */
+.hide-hotbar-config input[type="range"] {
+    width: 70%;
+    margin-right: 10px;
+    accent-color: var(--rnk-toxic-green);
+}
+
+.hide-hotbar-config .range-value {
+    display: inline-block;
+    min-width: 60px;
+    text-align: right;
+    font-weight: bold;
+    color: var(--rnk-toxic-green);
+}
+
+/* Form Inputs */
+.hide-hotbar-config input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--rnk-toxic-green);
+}
+
+.hide-hotbar-config select {
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid rgba(57, 255, 20, 0.4);
+    color: var(--rnk-light-tan);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.hide-hotbar-config select:focus {
+    border-color: var(--rnk-toxic-green);
+    outline: none;
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.4);
+}
+
+.hide-hotbar-config input[type="text"] {
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid rgba(57, 255, 20, 0.4);
+    color: var(--rnk-light-tan);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.hide-hotbar-config input[type="text"]:focus {
+    border-color: var(--rnk-toxic-green);
+    outline: none;
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.4);
+}
+
+/* Footer */
+.hide-hotbar-config .form-footer {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 2px solid var(--rnk-toxic-green);
+    text-align: center;
+}
+
+.hide-hotbar-config .form-footer button {
+    background: linear-gradient(135deg, var(--rnk-dark-green) 0%, #0d4a06 100%);
+    border: 3px solid var(--rnk-toxic-green);
+    color: var(--rnk-toxic-green);
+    padding: 12px 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
+    text-shadow: 0 0 8px rgba(57, 255, 20, 0.8);
+}
+
+.hide-hotbar-config .form-footer button:hover {
+    background: linear-gradient(135deg, #0d4a06 0%, var(--rnk-dark-green) 100%);
+    box-shadow: 0 0 30px rgba(57, 255, 20, 0.8);
+    transform: scale(1.05);
+}
+
+/* Preset Controls */
+.hide-hotbar-config .preset-controls .form-group {
+    margin: 15px 0;
+}
+
+.hide-hotbar-config .preset-info {
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(57, 255, 20, 0.1);
+    border: 1px solid rgba(57, 255, 20, 0.3);
+    border-radius: 5px;
+}
+
+.hide-hotbar-config .preset-info strong {
+    color: var(--rnk-toxic-green);
+}
+
+.hide-hotbar-config .preset-info em {
+    color: #cccccc;
+}
+/* Sidebar Tabs Grid */
+.hide-hotbar-config .sidebar-tabs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.hide-hotbar-config .sidebar-tabs-grid .form-group {
+    border: 1px solid #8b4513;
+    padding: 10px;
+    border-radius: 5px;
+    background: rgba(107, 68, 35, 0.1);
+    margin: 0;
+}
+
+.hide-hotbar-config .sidebar-tabs-grid label i {
+    width: 20px;
+    text-align: center;
+    margin-right: 5px;
+    color: #8b4513;
+}
+/* Preset Controls */
+.hide-hotbar-config .preset-controls .form-fields {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.hide-hotbar-config .preset-controls select {
+    flex: 1;
+}
+
+.hide-hotbar-config .preset-info {
+    padding: 15px;
+    background: rgba(107, 68, 35, 0.2);
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+/* Buttons */
+.hide-hotbar-config button {
+    background: linear-gradient(135deg, #6b4423 0%, #8b4513 50%, #5a3a1a 100%);
+    border: none;
+    color: #e8dcc4;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.hide-hotbar-config button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(107, 68, 35, 0.5);
+}
+
+.hide-hotbar-config button.bright {
+    font-size: 1.1em;
+    padding: 10px 20px;
+}
+
+.hide-hotbar-config button i {
+    margin-right: 5px;
+}
+
+/* Notes */
+.hide-hotbar-config .notes {
+    font-size: 0.9em;
+    color: #cccccc;
+    font-style: italic;
+}
+
+/* Footer */
+.hide-hotbar-config .form-footer {
+    text-align: center;
+    padding-top: 15px;
+    border-top: 2px solid #8b4513;
+}
+
+/* Macro Directory Button */
+.rnk-hide-em-config {
+    width: 100%;
+    margin-top: 5px;
+    background: linear-gradient(135deg, #6b4423 0%, #8b4513 50%, #5a3a1a 100%);
+    border: none;
+    color: #e8dcc4;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.rnk-htm-config:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(107, 68, 35, 0.5);
+}
