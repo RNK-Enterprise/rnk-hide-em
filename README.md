@@ -93,6 +93,12 @@ Copyright © 2025 Asgard Innovations / RNK™
 All Rights Reserved
 
 ## Version History
+
+### v2.0.4 (2026-01-12)
+- Fixed macro directory toggle wiring and sidebar tab persistence
+- Restored per-player sidebar tab selections in the configuration UI
+- Expanded export/import/share coverage to include all visibility settings
+
 ### v2.0.0 (2026-01-06)
 - Added Hide Entire Hotbar feature
 - Added Hide Chat Box feature

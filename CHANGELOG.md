@@ -2,6 +2,17 @@
 
 All notable changes to RNK™ Hide 'Em will be documented in this file.
 
+## [2.0.4] - 2026-01-12
+
+### Fixed
+- Corrected macro directory toggle wiring and sidebar tab persistence
+- Restored per-player sidebar tab selections in the configuration UI
+
+### Changed
+- Expanded export/import/share payloads to include all visibility settings
+- Aligned log/version metadata for the release
+
+
 ## [2.0.2] - 2026-01-12
 
 ### Changed

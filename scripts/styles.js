@@ -53,8 +53,14 @@ export function updateHotbarStyles() {
   }
   
   const applyToGM = getSetting(SETTINGS.APPLY_TO_GM);
+  const hideMacroDirectory = getSetting(SETTINGS.HIDE_MACRO_DIRECTORY);
   const opacity = getSetting(SETTINGS.OPACITY);
   const animationDuration = getSetting(SETTINGS.ANIMATION_DURATION);
+  const effectiveHiddenSidebarTabs = new Set(hiddenSidebarTabs);
+
+  if (hideMacroDirectory) {
+    effectiveHiddenSidebarTabs.add("macros");
+  }
 
   log(`Updating styles. GM: ${isGM}, ApplyToGM: ${applyToGM}, Using per-player: ${!!playerSettings}, Scene Controls hidden: ${hideSceneControls}, Entire Hotbar hidden: ${hideEntireHotbar}, Chat hidden: ${hideChat}, Players hidden: ${hidePlayers}`);
 
@@ -186,9 +192,9 @@ export function updateHotbarStyles() {
         }
       `;
       
-      if (hiddenSidebarTabs.length > 0) {
+      if (effectiveHiddenSidebarTabs.size > 0) {
         // Hide individual sidebar tabs
-        hiddenSidebarTabs.forEach(tab => {
+        effectiveHiddenSidebarTabs.forEach(tab => {
           css += `
             #sidebar-tabs [data-tab="${tab}"],
             #sidebar-tabs .item[data-tab="${tab}"],
@@ -335,8 +341,8 @@ export function updateHotbarStyles() {
     `;
   }
 
-  if (hiddenSidebarTabs.length > 0) {
-    log(`Generated CSS for tabs: ${hiddenSidebarTabs.join(", ")}`);
+  if (effectiveHiddenSidebarTabs.size > 0) {
+    log(`Generated CSS for tabs: ${Array.from(effectiveHiddenSidebarTabs).join(", ")}`);
   }
 
   updateStyleElement(css);

@@ -35,7 +35,7 @@ export function registerHandlebarsHelpers() {
 
 // Register init hook
 Hooks.once("init", () => {
-  log("Initializing RNK Hide 'Em v2.0");
+  log("Initializing RNK Hide 'Em v2.0.4");
   registerSettings();
   registerHandlebarsHelpers();
   initHook();

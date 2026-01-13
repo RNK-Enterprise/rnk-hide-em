@@ -119,6 +119,15 @@ export function registerSettings() {
     onChange: () => updateHotbarStyles()
   });
 
+  // Hide macro directory tab
+  game.settings.register(MODULE_ID, SETTINGS.HIDE_MACRO_DIRECTORY, {
+    scope: "world",
+    config: false,
+    type: Boolean,
+    default: DEFAULTS.HIDE_MACRO_DIRECTORY,
+    onChange: () => updateHotbarStyles()
+  });
+
   // Hidden sidebar tabs
   game.settings.register(MODULE_ID, SETTINGS.HIDDEN_SIDEBAR_TABS, {
     scope: "world",

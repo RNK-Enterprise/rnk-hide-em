@@ -13,7 +13,7 @@ import { getSetting, setSetting, notify, log } from "../utils.js";
  */
 export function exportConfiguration() {
   const config = {
-    version: "2.0.0",
+    version: "2.0.4",
     exportDate: new Date().toISOString(),
     settings: {
       hiddenSlots: getSetting(SETTINGS.HIDDEN_SLOTS),
@@ -21,10 +21,19 @@ export function exportConfiguration() {
       applyToGM: getSetting(SETTINGS.APPLY_TO_GM),
       hideLeftControls: getSetting(SETTINGS.HIDE_LEFT_CONTROLS),
       hideRightControls: getSetting(SETTINGS.HIDE_RIGHT_CONTROLS),
+      hideSidebar: getSetting(SETTINGS.HIDE_SIDEBAR),
+      hideSceneControls: getSetting(SETTINGS.HIDE_SCENE_CONTROLS),
+      hideEntireHotbar: getSetting(SETTINGS.HIDE_ENTIRE_HOTBAR),
+      hideChat: getSetting(SETTINGS.HIDE_CHAT),
+      hidePlayers: getSetting(SETTINGS.HIDE_PLAYERS),
+      hideSceneNavigation: getSetting(SETTINGS.HIDE_SCENE_NAVIGATION),
+      hideMacroDirectory: getSetting(SETTINGS.HIDE_MACRO_DIRECTORY),
       opacity: getSetting(SETTINGS.OPACITY),
       animationDuration: getSetting(SETTINGS.ANIMATION_DURATION),
       hiddenPages: getSetting(SETTINGS.HIDDEN_PAGES),
-      presets: getSetting(SETTINGS.PRESETS)
+      hiddenSidebarTabs: getSetting(SETTINGS.HIDDEN_SIDEBAR_TABS),
+      presets: getSetting(SETTINGS.PRESETS),
+      perPlayerSettings: getSetting(SETTINGS.PER_PLAYER_SETTINGS)
     }
   };
 
@@ -86,10 +95,19 @@ export async function processImportedFile(file) {
     if (settings.applyToGM !== undefined) await setSetting(SETTINGS.APPLY_TO_GM, settings.applyToGM);
     if (settings.hideLeftControls !== undefined) await setSetting(SETTINGS.HIDE_LEFT_CONTROLS, settings.hideLeftControls);
     if (settings.hideRightControls !== undefined) await setSetting(SETTINGS.HIDE_RIGHT_CONTROLS, settings.hideRightControls);
+    if (settings.hideSidebar !== undefined) await setSetting(SETTINGS.HIDE_SIDEBAR, settings.hideSidebar);
+    if (settings.hideSceneControls !== undefined) await setSetting(SETTINGS.HIDE_SCENE_CONTROLS, settings.hideSceneControls);
+    if (settings.hideEntireHotbar !== undefined) await setSetting(SETTINGS.HIDE_ENTIRE_HOTBAR, settings.hideEntireHotbar);
+    if (settings.hideChat !== undefined) await setSetting(SETTINGS.HIDE_CHAT, settings.hideChat);
+    if (settings.hidePlayers !== undefined) await setSetting(SETTINGS.HIDE_PLAYERS, settings.hidePlayers);
+    if (settings.hideSceneNavigation !== undefined) await setSetting(SETTINGS.HIDE_SCENE_NAVIGATION, settings.hideSceneNavigation);
+    if (settings.hideMacroDirectory !== undefined) await setSetting(SETTINGS.HIDE_MACRO_DIRECTORY, settings.hideMacroDirectory);
     if (settings.opacity !== undefined) await setSetting(SETTINGS.OPACITY, settings.opacity);
     if (settings.animationDuration !== undefined) await setSetting(SETTINGS.ANIMATION_DURATION, settings.animationDuration);
     if (settings.hiddenPages) await setSetting(SETTINGS.HIDDEN_PAGES, settings.hiddenPages);
+    if (settings.hiddenSidebarTabs) await setSetting(SETTINGS.HIDDEN_SIDEBAR_TABS, settings.hiddenSidebarTabs);
     if (settings.presets) await setSetting(SETTINGS.PRESETS, settings.presets);
+    if (settings.perPlayerSettings) await setSetting(SETTINGS.PER_PLAYER_SETTINGS, settings.perPlayerSettings);
 
     notify("Configuration imported successfully!", "info");
     log("Configuration imported");
@@ -131,8 +149,19 @@ export function shareConfiguration() {
     hideBackground: getSetting(SETTINGS.HIDE_BACKGROUND),
     hideLeftControls: getSetting(SETTINGS.HIDE_LEFT_CONTROLS),
     hideRightControls: getSetting(SETTINGS.HIDE_RIGHT_CONTROLS),
+    hideSidebar: getSetting(SETTINGS.HIDE_SIDEBAR),
+    hideSceneControls: getSetting(SETTINGS.HIDE_SCENE_CONTROLS),
+    hideEntireHotbar: getSetting(SETTINGS.HIDE_ENTIRE_HOTBAR),
+    hideChat: getSetting(SETTINGS.HIDE_CHAT),
+    hidePlayers: getSetting(SETTINGS.HIDE_PLAYERS),
+    hideSceneNavigation: getSetting(SETTINGS.HIDE_SCENE_NAVIGATION),
+    hideMacroDirectory: getSetting(SETTINGS.HIDE_MACRO_DIRECTORY),
     opacity: getSetting(SETTINGS.OPACITY),
-    hiddenPages: getSetting(SETTINGS.HIDDEN_PAGES)
+    animationDuration: getSetting(SETTINGS.ANIMATION_DURATION),
+    hiddenPages: getSetting(SETTINGS.HIDDEN_PAGES),
+    hiddenSidebarTabs: getSetting(SETTINGS.HIDDEN_SIDEBAR_TABS),
+    presets: getSetting(SETTINGS.PRESETS),
+    perPlayerSettings: getSetting(SETTINGS.PER_PLAYER_SETTINGS)
   };
 
   const json = JSON.stringify(config);
@@ -168,8 +197,19 @@ export async function loadSharedConfiguration(base64) {
     await setSetting(SETTINGS.HIDE_BACKGROUND, config.hideBackground || false);
     await setSetting(SETTINGS.HIDE_LEFT_CONTROLS, config.hideLeftControls || false);
     await setSetting(SETTINGS.HIDE_RIGHT_CONTROLS, config.hideRightControls || false);
+    await setSetting(SETTINGS.HIDE_SIDEBAR, config.hideSidebar || false);
+    await setSetting(SETTINGS.HIDE_SCENE_CONTROLS, config.hideSceneControls || false);
+    await setSetting(SETTINGS.HIDE_ENTIRE_HOTBAR, config.hideEntireHotbar || false);
+    await setSetting(SETTINGS.HIDE_CHAT, config.hideChat || false);
+    await setSetting(SETTINGS.HIDE_PLAYERS, config.hidePlayers || false);
+    await setSetting(SETTINGS.HIDE_SCENE_NAVIGATION, config.hideSceneNavigation || false);
+    await setSetting(SETTINGS.HIDE_MACRO_DIRECTORY, config.hideMacroDirectory || false);
     await setSetting(SETTINGS.OPACITY, config.opacity || 100);
+    await setSetting(SETTINGS.ANIMATION_DURATION, config.animationDuration || 300);
     await setSetting(SETTINGS.HIDDEN_PAGES, config.hiddenPages || []);
+    await setSetting(SETTINGS.HIDDEN_SIDEBAR_TABS, config.hiddenSidebarTabs || []);
+    await setSetting(SETTINGS.PRESETS, config.presets || []);
+    await setSetting(SETTINGS.PER_PLAYER_SETTINGS, config.perPlayerSettings || {});
 
     notify("Shared configuration loaded!", "info");
     return true;

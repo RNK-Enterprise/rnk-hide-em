@@ -305,12 +305,12 @@
                 <p class="notes">Select which sidebar tabs to hide for this player.</p>
                 
                 <div class="sidebar-tabs-grid">
-                    {{#each ../sidebarTabs}}
+                    {{#each this.sidebarTabs}}
                     <div class="form-group">
                         <label for="player-{{../this.id}}-sidebar-tab-{{this.id}}">
                             <i class="{{this.icon}}"></i> {{this.label}}
                         </label>
-                        <input type="checkbox" name="player-{{../this.id}}-sidebar-tab-{{this.id}}" id="player-{{../this.id}}-sidebar-tab-{{this.id}}">
+                        <input type="checkbox" name="player-{{../this.id}}-sidebar-tab-{{this.id}}" id="player-{{../this.id}}-sidebar-tab-{{this.id}}" {{checked this.hidden}}>
                     </div>
                     {{/each}}
                 </div>

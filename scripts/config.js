@@ -41,6 +41,7 @@ export class HideHotbarConfig extends FormApplication {
     const hideChat = getSetting(SETTINGS.HIDE_CHAT);
     const hidePlayers = getSetting(SETTINGS.HIDE_PLAYERS);
     const hideSceneNavigation = getSetting(SETTINGS.HIDE_SCENE_NAVIGATION);
+    const hideMacroDirectory = getSetting(SETTINGS.HIDE_MACRO_DIRECTORY);
     const hiddenSidebarTabs = getSetting(SETTINGS.HIDDEN_SIDEBAR_TABS) || [];
     const opacity = getSetting(SETTINGS.OPACITY);
     const animationDuration = getSetting(SETTINGS.ANIMATION_DURATION);
@@ -70,8 +71,7 @@ export class HideHotbarConfig extends FormApplication {
       });
     }
 
-    // Build sidebar tabs array
-    const sidebarTabs = [
+    const sidebarTabDefinitions = [
       { id: "chat", label: "Chat Log", icon: "fas fa-comments" },
       { id: "combat", label: "Combat Tracker", icon: "fas fa-swords" },
       { id: "scenes", label: "Scene Directory", icon: "fas fa-map" },
@@ -84,18 +84,33 @@ export class HideHotbarConfig extends FormApplication {
       { id: "compendium", label: "Compendium Packs", icon: "fas fa-atlas" },
       { id: "settings", label: "Game Settings", icon: "fas fa-cogs" },
       { id: "macros", label: "Macro Directory", icon: "fas fa-code" }
-    ].map(tab => ({
+    ];
+    const effectiveHiddenSidebarTabs = new Set(hiddenSidebarTabs);
+
+    if (hideMacroDirectory) {
+      effectiveHiddenSidebarTabs.add("macros");
+    }
+
+    // Build sidebar tabs array
+    const sidebarTabs = sidebarTabDefinitions.map(tab => ({
       ...tab,
-      hidden: hiddenSidebarTabs.includes(tab.id)
+      hidden: effectiveHiddenSidebarTabs.has(tab.id)
     }));
 
     // Build players array with their settings
-    const players = game.users.filter(u => !u.isGM).map(user => ({
-      id: user.id,
-      name: user.name,
-      color: user.color,
-      settings: perPlayerSettings[user.id] || {}
-    }));
+    const players = game.users.filter(u => !u.isGM).map(user => {
+      const playerSettings = perPlayerSettings[user.id] || {};
+      return {
+        id: user.id,
+        name: user.name,
+        color: user.color,
+        settings: playerSettings,
+        sidebarTabs: sidebarTabDefinitions.map(tab => ({
+          ...tab,
+          hidden: (playerSettings.hiddenSidebarTabs || []).includes(tab.id)
+        }))
+      };
+    });
 
     return {
       slots,
@@ -112,6 +127,7 @@ export class HideHotbarConfig extends FormApplication {
       hideChat,
       hidePlayers,
       hideSceneNavigation,
+      hideMacroDirectory,
       opacity,
       animationDuration,
       presets,
@@ -213,7 +229,7 @@ export class HideHotbarConfig extends FormApplication {
     await setSetting(SETTINGS.HIDE_LEFT_CONTROLS, config.hideLeftControls);
     await setSetting(SETTINGS.HIDE_RIGHT_CONTROLS, config.hideRightControls);
     await setSetting(SETTINGS.OPACITY, config.opacity);
-    await setSetting(SETTINGS.HIDDEN_PAGES, config.hiddenPages);
+    await setSetting(SETTINGS.HIDDEN_PAGES, config.hiddenPages || []);
     await setSetting(SETTINGS.ACTIVE_PRESET, preset.name);
 
     updateHotbarStyles();
@@ -248,10 +264,19 @@ export class HideHotbarConfig extends FormApplication {
       applyToGM: getSetting(SETTINGS.APPLY_TO_GM),
       hideLeftControls: getSetting(SETTINGS.HIDE_LEFT_CONTROLS),
       hideRightControls: getSetting(SETTINGS.HIDE_RIGHT_CONTROLS),
+      hideSidebar: getSetting(SETTINGS.HIDE_SIDEBAR),
+      hideSceneControls: getSetting(SETTINGS.HIDE_SCENE_CONTROLS),
+      hideEntireHotbar: getSetting(SETTINGS.HIDE_ENTIRE_HOTBAR),
+      hideChat: getSetting(SETTINGS.HIDE_CHAT),
+      hidePlayers: getSetting(SETTINGS.HIDE_PLAYERS),
+      hideSceneNavigation: getSetting(SETTINGS.HIDE_SCENE_NAVIGATION),
+      hideMacroDirectory: getSetting(SETTINGS.HIDE_MACRO_DIRECTORY),
       opacity: getSetting(SETTINGS.OPACITY),
       animationDuration: getSetting(SETTINGS.ANIMATION_DURATION),
       hiddenPages: getSetting(SETTINGS.HIDDEN_PAGES),
-      presets: getSetting(SETTINGS.PRESETS)
+      hiddenSidebarTabs: getSetting(SETTINGS.HIDDEN_SIDEBAR_TABS),
+      presets: getSetting(SETTINGS.PRESETS),
+      perPlayerSettings: getSetting(SETTINGS.PER_PLAYER_SETTINGS)
     };
 
     const json = JSON.stringify(config, null, 2);
@@ -284,10 +309,19 @@ export class HideHotbarConfig extends FormApplication {
         if (config.applyToGM !== undefined) await setSetting(SETTINGS.APPLY_TO_GM, config.applyToGM);
         if (config.hideLeftControls !== undefined) await setSetting(SETTINGS.HIDE_LEFT_CONTROLS, config.hideLeftControls);
         if (config.hideRightControls !== undefined) await setSetting(SETTINGS.HIDE_RIGHT_CONTROLS, config.hideRightControls);
+        if (config.hideSidebar !== undefined) await setSetting(SETTINGS.HIDE_SIDEBAR, config.hideSidebar);
+        if (config.hideSceneControls !== undefined) await setSetting(SETTINGS.HIDE_SCENE_CONTROLS, config.hideSceneControls);
+        if (config.hideEntireHotbar !== undefined) await setSetting(SETTINGS.HIDE_ENTIRE_HOTBAR, config.hideEntireHotbar);
+        if (config.hideChat !== undefined) await setSetting(SETTINGS.HIDE_CHAT, config.hideChat);
+        if (config.hidePlayers !== undefined) await setSetting(SETTINGS.HIDE_PLAYERS, config.hidePlayers);
+        if (config.hideSceneNavigation !== undefined) await setSetting(SETTINGS.HIDE_SCENE_NAVIGATION, config.hideSceneNavigation);
+        if (config.hideMacroDirectory !== undefined) await setSetting(SETTINGS.HIDE_MACRO_DIRECTORY, config.hideMacroDirectory);
         if (config.opacity !== undefined) await setSetting(SETTINGS.OPACITY, config.opacity);
         if (config.animationDuration !== undefined) await setSetting(SETTINGS.ANIMATION_DURATION, config.animationDuration);
         if (config.hiddenPages) await setSetting(SETTINGS.HIDDEN_PAGES, config.hiddenPages);
+        if (config.hiddenSidebarTabs) await setSetting(SETTINGS.HIDDEN_SIDEBAR_TABS, config.hiddenSidebarTabs);
         if (config.presets) await setSetting(SETTINGS.PRESETS, config.presets);
+        if (config.perPlayerSettings) await setSetting(SETTINGS.PER_PLAYER_SETTINGS, config.perPlayerSettings);
 
         updateHotbarStyles();
         notify("Configuration imported!", "info");
@@ -322,7 +356,7 @@ export class HideHotbarConfig extends FormApplication {
       }
 
       // Process sidebar tabs
-      const tabIds = ["chat", "combat", "scenes", "actors", "items", "journal", "tables", "cards", "playlists", "compendium", "settings"];
+      const tabIds = ["chat", "combat", "scenes", "actors", "items", "journal", "tables", "cards", "playlists", "compendium", "settings", "macros"];
       tabIds.forEach(id => {
         const key = `sidebar-tab-${id}`;
         if (formData[key]) {
@@ -362,12 +396,12 @@ export class HideHotbarConfig extends FormApplication {
         }
 
         // Process player-specific sidebar tabs
-        const sidebarTabIds = ["chat", "combat", "scenes", "actors", "items", "journal", "tables", "cards", "playlists", "compendium", "settings"];
-        sidebarTabIds.forEach(id => {
-          const key = `player-${user.id}-sidebar-tab-${id}`;
-          if (formData[key]) {
-            playerSettings.hiddenSidebarTabs.push(id);
-          }
+      const sidebarTabIds = ["chat", "combat", "scenes", "actors", "items", "journal", "tables", "cards", "playlists", "compendium", "settings", "macros"];
+      sidebarTabIds.forEach(id => {
+        const key = `player-${user.id}-sidebar-tab-${id}`;
+        if (formData[key]) {
+          playerSettings.hiddenSidebarTabs.push(id);
+        }
         });
 
         perPlayerSettings[user.id] = playerSettings;
@@ -387,6 +421,7 @@ export class HideHotbarConfig extends FormApplication {
       await setSetting(SETTINGS.HIDE_CHAT, formData.hideChat || false);
       await setSetting(SETTINGS.HIDE_PLAYERS, formData.hidePlayers || false);
       await setSetting(SETTINGS.HIDE_SCENE_NAVIGATION, formData.hideSceneNavigation || false);
+      await setSetting(SETTINGS.HIDE_MACRO_DIRECTORY, formData.hideMacroDirectory || false);
       await setSetting(SETTINGS.HIDDEN_SIDEBAR_TABS, hiddenSidebarTabs);
       await setSetting(SETTINGS.OPACITY, parseInt(formData.opacity) || 100);
       await setSetting(SETTINGS.ANIMATION_DURATION, parseInt(formData.animationDuration) || 300);
