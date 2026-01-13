@@ -1,7 +1,7 @@
 {
     "id":  "rnk-hide-em",
     "title":  "RNK™ Hide 'Em",
-    "version":  "2.0.4",
+    "version":  "2.0.5",
     "description":  "Advanced hotbar customization module with animation, opacity control, presets, and per-player visibility settings. Hide slots, pages, or controls with smooth transitions.",
     "protected":  true,
     "media":  [
@@ -25,8 +25,7 @@
                     }
                 ],
     "url":  "https://github.com/Odinn-1982/rnk-hide-em",
-    "manifest":  "https://github.com/Odinn-1982/rnk-hide-em/releases/latest/download/module.json",
-    "download":  "https://github.com/Odinn-1982/rnk-hide-em/releases/download/v2.0.4/rnk-hide-em-v2.0.4.zip",
+    "manifest":  "https://r2.foundryvtt.com/packages-public/rnk-hide-em/module.json",
     "license":  "https://github.com/Odinn-1982/rnk-hide-em/blob/main/LICENSE",
     "readme":  "https://github.com/Odinn-1982/rnk-hide-em/blob/main/README.md",
     "bugs":  "https://github.com/Odinn-1982/rnk-hide-em/issues",
