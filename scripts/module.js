@@ -1,7 +1,7 @@
 /**
  * Copyright © 2025 Asgard Innovations / RNK™
  * All Rights Reserved
- *
+ * 
  * Main Module Entry Point
  */
 
@@ -32,26 +32,6 @@ export function registerHandlebarsHelpers() {
   Handlebars.registerHelper('subtract', subtractHelper);
   Handlebars.registerHelper('multiply', multiplyHelper);
 }
-
-// ============================================================================
-// CODEX REGISTRATION - Module Level (Before Hooks)
-// ============================================================================
-globalThis.RNK_MODULES = globalThis.RNK_MODULES || [];
-globalThis.RNK_MODULES.push({
-  id: 'rnk-hide-em',
-  title: 'RNK Hide \'Em',
-  icon: 'fas fa-eye-slash',
-  order: 60,
-  quantumPortal: true,
-  onClick: () => {
-    // Open the hide-em interface
-    if (game.rnkHideEm?.openInterface) {
-      game.rnkHideEm.openInterface();
-    }
-  }
-});
-
-log('RNK Hide \'Em | Registered with RNK Codex');
 
 // Register init hook
 Hooks.once("init", () => {

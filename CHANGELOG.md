@@ -1,12 +1,10 @@
 # Changelog
 
 All notable changes to RNK™ Hide 'Em will be documented in this file.
-
 ## [2.0.7] - 2026-01-14
 
 ### Changed
 - Maintenance release with version alignment and repository updates
-
 ## [2.0.4] - 2026-01-12
 
 ### Fixed
