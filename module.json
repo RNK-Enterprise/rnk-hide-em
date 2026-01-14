@@ -1,7 +1,7 @@
 {
     "id":  "rnk-hide-em",
     "title":  "RNK™ Hide 'Em",
-    "version":  "2.0.6",
+    "version":  "2.0.7",
     "description":  "Advanced hotbar customization module with animation, opacity control, presets, and per-player visibility settings. Hide slots, pages, or controls with smooth transitions.",
     "protected":  true,
     "media":  [

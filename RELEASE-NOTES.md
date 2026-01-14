@@ -1,12 +1,15 @@
-# RNK?,? Hide 'Em v2.0.4 - Release Notes
+# RNK™ Hide 'Em v2.0.7 - Release Notes
 
 ## Package Information
 - Module ID: rnk-hide-em
-- Version: 2.0.4
+- Version: 2.0.7
 - Foundry VTT Compatibility: v13
-- Release Date: 2026-01-12
+- Release Date: 2026-01-14
 
 ## Changelog
+### v2.0.7
+- Maintenance release with version alignment and repository updates
+
 ### v2.0.4
 - Fixed macro directory toggle wiring and sidebar tab persistence
 - Restored per-player sidebar tab selections in the configuration UI
