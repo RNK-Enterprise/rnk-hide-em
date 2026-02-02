@@ -1,7 +1,7 @@
 {
     "id":  "rnk-hide-em",
     "title":  "RNK™ Hide 'Em",
-    "version":  "2.0.9",
+    "version":  "2.1.0",
     "description":  "Advanced hotbar customization module with animation, opacity control, presets, and per-player visibility settings. Hide slots, pages, or controls with smooth transitions.",
     "protected":  true,
     "media":  [
@@ -15,17 +15,19 @@
                   }
               ],
     "compatibility":  {
-                          "minimum":  "11",
+                          "minimum":  "12",
                           "verified":  "13"
                       },
     "authors":  [
                     {
-                        "name":  "Asgard Innovations / RNKÃ¢â€žÂ¢",
-                        "url":  "https://github.com/RNK-Enterprise"
+                        "name":  "RNK™ Enterprise",
+                        "url":  "https://github.com/RNK-Enterprise",
+                        "email": "asgardinnovations@protonmail.com"
                     }
                 ],
     "url":  "https://github.com/RNK-Enterprise/rnk-hide-em",
-    "manifest":  "https://r2.foundryvtt.com/packages-public/rnk-hide-em/module.json",
+    "manifest":  "https://raw.githubusercontent.com/RNK-Enterprise/rnk-hide-em/main/module.json",
+    "download": "https://github.com/RNK-Enterprise/rnk-hide-em/releases/download/v2.1.0/rnk-hide-em-2.1.0.zip",
     "license":  "https://github.com/RNK-Enterprise/rnk-hide-em/blob/main/LICENSE",
     "readme":  "https://github.com/RNK-Enterprise/rnk-hide-em/blob/main/README.md",
     "bugs":  "https://github.com/RNK-Enterprise/rnk-hide-em/issues",
