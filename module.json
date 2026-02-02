@@ -27,6 +27,7 @@
                 ],
     "url":  "https://github.com/RNK-Enterprise/rnk-hide-em",
     "manifest":  "https://r2.foundryvtt.com/packages-public/rnk-hide-em/module.json",
+    "download": "https://github.com/RNK-Enterprise/rnk-hide-em/releases/download/v2.1.0/rnk-hide-em-2.1.0.zip",
     "license":  "https://github.com/RNK-Enterprise/rnk-hide-em/blob/main/LICENSE",
     "readme":  "https://github.com/RNK-Enterprise/rnk-hide-em/blob/main/README.md",
     "bugs":  "https://github.com/RNK-Enterprise/rnk-hide-em/issues",
