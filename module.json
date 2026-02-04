@@ -1,6 +1,6 @@
 ﻿{
     "id":  "rnk-hide-em",
-    "title":  "RNKâ„¢ Hide 'Em",
+    "title":  "RNK Hide \u0027Em",
     "version":  "2.2.0",
     "description":  "Advanced hotbar customization module with animation, opacity control, presets, and per-player visibility settings. Hide slots, pages, or controls with smooth transitions.",
     "protected":  true,
@@ -22,18 +22,18 @@
                     {
                         "name":  "Asgard Innovations",
                         "url":  "https://github.com/RNK-Enterprise",
-                        "email": "asgardinnovations@protonmail.com"
+                        "email":  "asgardinnovations@protonmail.com"
                     }
                 ],
     "url":  "https://github.com/RNK-Enterprise/rnk-hide-em",
-    "manifest": "https://raw.githubusercontent.com/RNK-Enterprise/rnk-hide-em-public/main/module.json",
+    "manifest":  "https://raw.githubusercontent.com/RNK-Enterprise/rnk-hide-em-public/main/module.json",
     "license":  "https://github.com/RNK-Enterprise/rnk-hide-em/blob/main/LICENSE",
     "readme":  "https://github.com/RNK-Enterprise/rnk-hide-em/blob/main/README.md",
     "bugs":  "https://github.com/RNK-Enterprise/rnk-hide-em-public/issues",
     "changelog":  "https://github.com/RNK-Enterprise/rnk-hide-em/releases",
-    "scripts": [
-        "scripts/rnk-verification-lib.js"
-    ],
+    "scripts":  [
+                    "scripts/rnk-verification-lib.js"
+                ],
     "esmodules":  [
                       "scripts/module.js",
                       "scripts/constants.js",
@@ -57,4 +57,3 @@
                       }
                   ]
 }
-
