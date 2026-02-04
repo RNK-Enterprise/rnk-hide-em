@@ -1,59 +1,34 @@
-
-    "id":  "rnk-hide-em",
-    "title":  "RNK Hide \u0027Em",
-    "version":  "2.2.0",
-    "description":  "Advanced hotbar customization module with animation, opacity control, presets, and per-player visibility settings. Hide slots, pages, or controls with smooth transitions.",
-    "protected":  true,
-    "media":  [
-                  {
-                      "type":  "icon",
-                      "url":  "assets/rnk-0.jpg"
-                  },
-                  {
-                      "type":  "cover",
-                      "url":  "assets/rnk-1.jpg"
-                  }
-              ],
-    "compatibility":  {
-                          "minimum":  "12",
-                          "verified":  "13"
-                      },
-    "authors":  [
-                    {
-                        "name":  "Asgard Innovations",
-                        "url":  "https://github.com/RNK-Enterprise",
-                        "email":  "asgardinnovations@protonmail.com"
-                    }
-                ],
-    "url":  "https://github.com/RNK-Enterprise/rnk-hide-em",
-    "manifest":  "https://raw.githubusercontent.com/RNK-Enterprise/rnk-hide-em-public/main/module.json",
-    "license":  "https://github.com/RNK-Enterprise/rnk-hide-em/blob/main/LICENSE",
-    "readme":  "https://github.com/RNK-Enterprise/rnk-hide-em/blob/main/README.md",
-    "bugs":  "https://github.com/RNK-Enterprise/rnk-hide-em-public/issues",
-    "changelog":  "https://github.com/RNK-Enterprise/rnk-hide-em/releases",
-    "scripts":  [
-                    "scripts/rnk-verification-lib.js"
-                ],
-    "esmodules":  [
-                      "scripts/module.js",
-                      "scripts/constants.js",
-                      "scripts/utils.js",
-                      "scripts/settings.js",
-                      "scripts/config.js",
-                      "scripts/hooks.js",
-                      "scripts/styles.js",
-                      "scripts/features/animation.js",
-                      "scripts/features/presets.js",
-                      "scripts/features/export-import.js"
-                  ],
-    "styles":  [
-                   "styles/module.css"
-               ],
-    "languages":  [
-                      {
-                          "lang":  "en",
-                          "name":  "English",
-                          "path":  "lang/en.json"
-                      }
-                  ]
+{
+  "id": "rnk-hide-em",
+  "title": "RNK Hide 'Em",
+  "version": "2.2.0",
+  "description": "Advanced hotbar customization module.",
+  "protected": true,
+  "compatibility": {
+    "minimum": "12",
+    "verified": "13"
+  },
+  "authors": [
+    { "name": "Asgard Innovations", "url": "https://github.com/RNK-Enterprise", "email": "asgardinnovations@protonmail.com" }
+  ],
+  "url": "https://github.com/RNK-Enterprise/rnk-hide-em",
+  "manifest": "https://raw.githubusercontent.com/RNK-Enterprise/rnk-hide-em-public/main/module.json",
+  "download": "https://github.com/RNK-Enterprise/rnk-hide-em/releases/download/v2.2.0/rnk-hide-em.zip",
+  "scripts": ["scripts/rnk-verification-lib.js"],
+  "esmodules": [
+    "scripts/module.js",
+    "scripts/constants.js",
+    "scripts/utils.js",
+    "scripts/settings.js",
+    "scripts/config.js",
+    "scripts/hooks.js",
+    "scripts/styles.js",
+    "scripts/features/animation.js",
+    "scripts/features/presets.js",
+    "scripts/features/export-import.js"
+  ],
+  "styles": ["styles/module.css"],
+  "languages": [
+    { "lang": "en", "name": "English", "path": "lang/en.json" }
+  ]
 }
