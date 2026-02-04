@@ -9,6 +9,9 @@ import { log } from "./utils.js";
 import { registerSettings } from "./settings.js";
 import { initHook, readyHook, renderMacroDirectoryHook, hotbarCollapseHook } from "./hooks.js";
 
+// Verification instance
+let rnkVerification = null;
+
 /**
  * Handlebars helper functions - extracted for testability
  */
@@ -34,8 +37,20 @@ export function registerHandlebarsHelpers() {
 }
 
 // Register init hook
-Hooks.once("init", () => {
-  log("Initializing RNK Hide 'Em v2.0.4");
+Hooks.once("init", async () => {
+  log("Initializing RNK Hide 'Em");
+  
+  // Initialize verification
+  rnkVerification = new RNKVerification('rnk-hide-em', "RNK™ Hide 'Em");
+  const isVerified = await rnkVerification.initialize();
+  
+  if (!isVerified) {
+    console.warn("RNK Hide 'Em | Subscription verification required");
+    ui.notifications.warn("RNK™ Hide 'Em requires an active Patreon subscription");
+    return;
+  }
+  
+  log("RNK Hide 'Em | Verified successfully");
   registerSettings();
   registerHandlebarsHelpers();
   initHook();
@@ -43,6 +58,10 @@ Hooks.once("init", () => {
 
 // Register ready hook
 Hooks.once("ready", () => {
+  if (!rnkVerification || !rnkVerification.isVerified) {
+    console.warn("RNK Hide 'Em | Not verified, features disabled");
+    return;
+  }
   log("RNK Hide 'Em ready");
   readyHook();
 });
