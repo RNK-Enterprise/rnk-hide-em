@@ -1,6 +1,6 @@
-{
+﻿{
     "id":  "rnk-hide-em",
-    "title":  "RNK™ Hide 'Em",
+    "title":  "RNKâ„¢ Hide \u0027Em",
     "version":  "2.2.3",
     "description":  "Advanced hotbar customization module with animation, opacity control, presets, and per-player visibility settings. Hide slots, pages, or controls with smooth transitions.",
     "protected":  true,
@@ -20,7 +20,7 @@
                       },
     "authors":  [
                     {
-                        "name":  "Asgard Innovations / RNKÃ¢â€žÂ¢",
+                        "name":  "Asgard Innovations / RNKÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢",
                         "url":  "https://github.com/RNK-Enterprise"
                     }
                 ],
@@ -50,196 +50,7 @@
                           "lang":  "en",
                           "name":  "English",
                           "path":  "lang/en.json"
-                      },
-                      {
-                          "lang":  "es",
-                          "name":  "EspaÃƒÂ±ol",
-                          "path":  "lang/es.json"
-                      },
-                      {
-                          "lang":  "fr",
-                          "name":  "FranÃƒÂ§ais",
-                          "path":  "lang/fr.json"
-                      },
-                      {
-                          "lang":  "de",
-                          "name":  "Deutsch",
-                          "path":  "lang/de.json"
-                      },
-                      {
-                          "lang":  "it",
-                          "name":  "Italiano",
-                          "path":  "lang/it.json"
-                      },
-                      {
-                          "lang":  "pt-BR",
-                          "name":  "PortuguÃƒÂªs (Brasil)",
-                          "path":  "lang/pt-BR.json"
-                      },
-                      {
-                          "lang":  "ja",
-                          "name":  "Ã¦â€”Â¥Ã¦Å“Â¬Ã¨ÂªÅ¾",
-                          "path":  "lang/ja.json"
-                      },
-                      {
-                          "lang":  "ko",
-                          "name":  "Ã­â€¢Å“ÃªÂµÂ­Ã¬â€“Â´",
-                          "path":  "lang/ko.json"
-                      },
-                      {
-                          "lang":  "zh",
-                          "name":  "Ã¤Â¸Â­Ã¦â€“â€¡",
-                          "path":  "lang/zh.json"
-                      },
-                      {
-                          "lang":  "ru",
-                          "name":  "ÃÂ Ã‘Æ’Ã‘ÂÃ‘ÂÃÂºÃÂ¸ÃÂ¹",
-                          "path":  "lang/ru.json"
-                      },
-                      {
-                          "lang":  "pl",
-                          "name":  "Polski",
-                          "path":  "lang/pl.json"
-                      },
-                      {
-                          "lang":  "nl",
-                          "name":  "Nederlands",
-                          "path":  "lang/nl.json"
-                      },
-                      {
-                          "lang":  "sv",
-                          "name":  "Svenska",
-                          "path":  "lang/sv.json"
-                      },
-                      {
-                          "lang":  "no",
-                          "name":  "Norsk",
-                          "path":  "lang/no.json"
-                      },
-                      {
-                          "lang":  "da",
-                          "name":  "Dansk",
-                          "path":  "lang/da.json"
-                      },
-                      {
-                          "lang":  "fi",
-                          "name":  "Suomi",
-                          "path":  "lang/fi.json"
-                      },
-                      {
-                          "lang":  "cs",
-                          "name":  "Ã„Å’eÃ…Â¡tina",
-                          "path":  "lang/cs.json"
-                      },
-                      {
-                          "lang":  "hu",
-                          "name":  "Magyar",
-                          "path":  "lang/hu.json"
-                      },
-                      {
-                          "lang":  "ro",
-                          "name":  "RomÃƒÂ¢nÃ„Æ’",
-                          "path":  "lang/ro.json"
-                      },
-                      {
-                          "lang":  "tr",
-                          "name":  "TÃƒÂ¼rkÃƒÂ§e",
-                          "path":  "lang/tr.json"
-                      },
-                      {
-                          "lang":  "ar",
-                          "name":  "Ã˜Â§Ã™â€žÃ˜Â¹Ã˜Â±Ã˜Â¨Ã™Å Ã˜Â©",
-                          "path":  "lang/ar.json"
-                      },
-                      {
-                          "lang":  "he",
-                          "name":  "Ã—Â¢Ã—â€˜Ã—Â¨Ã—â„¢Ã—Âª",
-                          "path":  "lang/he.json"
-                      },
-                      {
-                          "lang":  "uk",
-                          "name":  "ÃÂ£ÃÂºÃ‘â‚¬ÃÂ°Ã‘â€”ÃÂ½Ã‘ÂÃ‘Å’ÃÂºÃÂ°",
-                          "path":  "lang/uk.json"
-                      },
-                      {
-                          "lang":  "el",
-                          "name":  "ÃŽâ€¢ÃŽÂ»ÃŽÂ»ÃŽÂ·ÃŽÂ½ÃŽÂ¹ÃŽÂºÃŽÂ¬",
-                          "path":  "lang/el.json"
-                      },
-                      {
-                          "lang":  "bg",
-                          "name":  "Ãâ€˜Ã‘Å ÃÂ»ÃÂ³ÃÂ°Ã‘â‚¬Ã‘ÂÃÂºÃÂ¸",
-                          "path":  "lang/bg.json"
-                      },
-                      {
-                          "lang":  "hr",
-                          "name":  "Hrvatski",
-                          "path":  "lang/hr.json"
-                      },
-                      {
-                          "lang":  "sr",
-                          "name":  "ÃÂ¡Ã‘â‚¬ÃÂ¿Ã‘ÂÃÂºÃÂ¸",
-                          "path":  "lang/sr.json"
-                      },
-                      {
-                          "lang":  "sk",
-                          "name":  "SlovenÃ„Âina",
-                          "path":  "lang/sk.json"
-                      },
-                      {
-                          "lang":  "sl",
-                          "name":  "SlovenÃ…Â¡Ã„Âina",
-                          "path":  "lang/sl.json"
-                      },
-                      {
-                          "lang":  "lt",
-                          "name":  "LietuviÃ…Â³",
-                          "path":  "lang/lt.json"
-                      },
-                      {
-                          "lang":  "lv",
-                          "name":  "LatvieÃ…Â¡u",
-                          "path":  "lang/lv.json"
-                      },
-                      {
-                          "lang":  "et",
-                          "name":  "Eesti",
-                          "path":  "lang/et.json"
-                      },
-                      {
-                          "lang":  "th",
-                          "name":  "Ã Â¹â€žÃ Â¸â€”Ã Â¸Â¢",
-                          "path":  "lang/th.json"
-                      },
-                      {
-                          "lang":  "vi",
-                          "name":  "TiÃ¡ÂºÂ¿ng ViÃ¡Â»â€¡t",
-                          "path":  "lang/vi.json"
-                      },
-                      {
-                          "lang":  "id",
-                          "name":  "Bahasa Indonesia",
-                          "path":  "lang/id.json"
-                      },
-                      {
-                          "lang":  "ms",
-                          "name":  "Bahasa Melayu",
-                          "path":  "lang/ms.json"
-                      },
-                      {
-                          "lang":  "fil",
-                          "name":  "Filipino",
-                          "path":  "lang/fil.json"
-                      },
-                      {
-                          "lang":  "hi",
-                          "name":  "Ã Â¤Â¹Ã Â¤Â¿Ã Â¤Â¨Ã Â¥ÂÃ Â¤Â¦Ã Â¥â‚¬",
-                          "path":  "lang/hi.json"
-                      },
-                      {
-                          "lang":  "bn",
-                          "name":  "Ã Â¦Â¬Ã Â¦Â¾Ã Â¦â€šÃ Â¦Â²Ã Â¦Â¾",
-                          "path":  "lang/bn.json"
                       }
-                  ]
+                  ],
+    "signature":  "26001698C0038AA07BBD4AD0FD529FB612762007CC6535E77AECBAD97ED7C00D"
 }
