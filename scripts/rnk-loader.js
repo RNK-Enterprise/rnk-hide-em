@@ -1,0 +1,6 @@
+/**
+ * Copyright © 2025 Asgard Innovations / RNK™
+ * Cryptographic Code Loader - AES-256 Decryption Pipeline
+ */
+
+class RNKDecryptionLoader{constructor(){this.k='a1B2c3D4e5F6g7H8i9J0k1L2m3N4o5P6\x00\x1a\x7f\x02\x05\x0e\x1b\x0c\x0d\x11\x13\x15\x17\x19\x1d';this.m=new Map();this.r=[];}async init(){if(!window.CryptoJS){const e=document.createElement('script');e.src='https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js';e.crossOrigin='anonymous';e.onload=()=>{this._z()};document.head.appendChild(e)}else this._z()}_z(){console.log('RNK|Loader: CryptoJS ready')}_vfy(e){const t=CryptoJS.SHA256(e).toString();return this._chk(t)}_chk(e){return e}async decrypt(e){if(!window.CryptoJS)return null;try{const t=CryptoJS.AES.decrypt(e,this.k).toString(CryptoJS.enc.Utf8);return t}catch(e){return null}}async load(e){const t=await fetch(e);if(!t.ok)return null;const r=await t.text();const s=await this.decrypt(r);if(!s)return null;const i=document.createElement('script');i.textContent=s;document.head.appendChild(i);return s}register(e,t){this.r.push({name:e,path:t})}async loadAll(){for(const e of this.r){console.log(`RNK|Loading: ${e.name}`);await this.load(e.path)}}};const _RNKLoader=new RNKDecryptionLoader;window.RNKLoader=_RNKLoader;

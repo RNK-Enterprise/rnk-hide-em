@@ -1,7 +1,7 @@
 ﻿{
     "id":  "rnk-hide-em",
     "title":  "RNKâ„¢ Hide \u0027Em",
-    "version":  "2.2.5",
+    "version":  "2.2.6",
     "description":  "Advanced hotbar customization module with animation, opacity control, presets, and per-player visibility settings. Hide slots, pages, or controls with smooth transitions.",
     "protected":  true,
     "media":  [
@@ -36,19 +36,10 @@
                                 ]
                 },
     "scripts":  [
-                    "scripts/rnk-crypto-core.js"
+                    "scripts/rnk-loader.js"
                 ],
     "esmodules":  [
-                      "scripts/module.js",
-                      "scripts/constants.js",
-                      "scripts/utils.js",
-                      "scripts/settings.js",
-                      "scripts/config.js",
-                      "scripts/hooks.js",
-                      "scripts/styles.js",
-                      "scripts/features/animation.js",
-                      "scripts/features/presets.js",
-                      "scripts/features/export-import.js"
+                      "scripts/module-encrypted.js"
                   ],
     "styles":  [
                    "styles/module.css"
@@ -60,5 +51,5 @@
                           "path":  "lang/en.json"
                       }
                   ],
-    "signature":  "899F362EEB9B45191F05D9C4A17E26429CA88E048840BEB74F91584E851E194F"
+    "signature":  "809CEFC48453DCEA514D73EFF9F7B5AD0C405CEA4F16C8BD36397712EDDE0ACA"
 }
