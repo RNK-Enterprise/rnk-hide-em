@@ -1,117 +1,110 @@
 # RNK™ Hide 'Em
 
-Advanced Foundry VTT module for customizing UI visibility with smooth animations, presets, and comprehensive control over what players see. Complete control over hotbar, sidebar, chat, scene controls, and navigation.
+> **⚠️ Premium Module**: This module requires an active Patreon subscription to use. [Support on Patreon](https://patreon.com/RagNaroks) to unlock access.
+
+Advanced hotbar customization module with animation, opacity control, presets, and per-player visibility settings.
 
 ## Features
 
-### Hotbar Control
-- Hide specific hotbar slots (1-50) with smooth animations
-- Hide entire hotbar pages at once
-- Hide the complete hotbar with one click
-- Hide hotbar background and controls (left/right)
-- Adjustable opacity and animation duration
+### Hotbar Customization
+- **Hide Individual Slots** - Selectively hide specific hotbar slots
+- **Hide Entire Pages** - Toggle visibility of complete hotbar pages
+- **Hide Controls** - Remove hotbar navigation controls
+- **Smooth Animations** - Beautiful transitions when showing/hiding elements
 
-### UI Element Control
-- **Hide Chat Box** - Remove the chat interface from view
-- **Hide Player List** - Hide the player roster
-- **Hide Scene Controls** - Remove the left-side tool palette
-- **Hide Scene Navigation** - Hide the top navigation bar
-- **Hide Sidebar** - Hide the entire right sidebar
-- **Hide Individual Sidebar Tabs** - Selectively hide specific tabs
+### Visual Controls
+- **Opacity Control** - Adjust hotbar transparency
+- **Animation Speed** - Customize transition timing
+- **Custom Styling** - Match hotbar appearance to your UI theme
 
-### Configuration & Presets
-- Save and load preset configurations
-- Export/Import and share configurations with your community
-- GM configuration menu with keybinding (Ctrl+Alt+H)
-- Apply settings to GM for testing
-- **39 Languages Supported** - Full internationalization
+### User Management
+- **Per-Player Settings** - Individual hotbar configurations for each user
+- **Preset System** - Save and load hotbar configurations
+- **Quick Toggle** - Rapid hotbar visibility controls
 
-## Supported Languages
-The module is fully localized in the following languages:
-
-**Western European:**
-- English
-- Español (Spanish)
-- Français (French)
-- Deutsch (German)
-- Italiano (Italian)
-- Português (Brasil) (Brazilian Portuguese)
-- Nederlands (Dutch)
-
-**Nordic:**
-- Svenska (Swedish)
-- Norsk (Norwegian)
-- Dansk (Danish)
-- Suomi (Finnish)
-
-**Eastern European:**
-- Русский (Russian)
-- Polski (Polish)
-- Čeština (Czech)
-- Magyar (Hungarian)
-- Română (Romanian)
-- Українська (Ukrainian)
-- Български (Bulgarian)
-- Hrvatski (Croatian)
-- Српски (Serbian)
-- Slovenčina (Slovak)
-- Slovenščina (Slovenian)
-- Lietuvių (Lithuanian)
-- Latviešu (Latvian)
-- Eesti (Estonian)
-
-**Middle East:**
-- Türkçe (Turkish)
-- العربية (Arabic)
-- עברית (Hebrew)
-- Ελληνικά (Greek)
-
-**Asian:**
-- 日本語 (Japanese)
-- 한국어 (Korean)
-- 中文 (Chinese)
-- ไทย (Thai)
-- Tiếng Việt (Vietnamese)
-- Bahasa Indonesia (Indonesian)
-- Bahasa Melayu (Malay)
-- Filipino
-- हिन्दी (Hindi)
-- বাংলা (Bengali)
-
-*Note: The module automatically uses your Foundry VTT language setting. Additional community translations welcome!*
+### Compatibility
+- System-agnostic design
+- Compatible with most Foundry VTT systems
+- Works alongside other UI modules
 
 ## Installation
-1. Copy this Manifest URL: `https://raw.githubusercontent.com/RNK-Enterprise/rnk-hide-em/main/module.json`
-2. In Foundry VTT, go to the **Add-on Modules** tab.
-3. Click **Install Module**.
-4. Paste the URL into the **Manifest URL** field.
-5. Click **Install**.
+
+### Via Foundry VTT Module Browser
+1. Open Foundry VTT
+2. Navigate to **Add-on Modules**
+3. Search for "RNK™ Hide 'Em"
+4. Click **Install**
+
+### Manual Installation
+1. Download the latest release
+2. Extract to your `Data/modules/` directory
+3. Restart Foundry VTT
+4. Enable the module in your world
+
+### Via Manifest URL
+```
+https://r2.foundryvtt.com/packages-public/rnk-hide-em/module.json
+```
+
+## Usage
+
+### Basic Configuration
+1. Enable the module in your world settings
+2. Access module settings from the Foundry configuration menu
+3. Configure which hotbar elements to hide
+4. Adjust animation and opacity settings
+
+### Presets
+- Save your current hotbar configuration as a preset
+- Load previously saved presets quickly
+- Share presets between worlds
+
+## Support & Issues
+
+**Community Support:**
+- GitHub Issues: [rnk-hide-em-public/issues](https://github.com/RNK-Enterprise/rnk-hide-em-public/issues)
+
+**Premium Support:**
+- Direct developer support for Patreon subscribers
+- Priority bug fixes and feature requests
+- Early access to new features
+
+## Compatibility
+
+- **Foundry VTT**: V12-V13 (verified)
+- **Systems**: Universal (system-agnostic)
 
 ## License
-Copyright © 2025 Asgard Innovations / RNK™
 
-All Rights Reserved
+RNK™ Proprietary License - See LICENSE file for details
 
-## Version History
+## Credits
 
-### v2.0.4 (2026-01-12)
-- Fixed macro directory toggle wiring and sidebar tab persistence
-- Restored per-player sidebar tab selections in the configuration UI
-- Expanded export/import/share coverage to include all visibility settings
+**Developed by:** Asgard Innovations  
+**Website:** https://github.com/RNK-Enterprise  
+**Support:** https://patreon.com/RagNaroks
 
-### v2.0.0 (2026-01-06)
-- Added Hide Entire Hotbar feature
-- Added Hide Chat Box feature
-- Added Hide Player List feature
-- Added Hide Scene Controls feature
-- Added Hide Scene Navigation feature
-- Updated theme to post-apocalyptic color scheme (rust/brown tones)
-- Enhanced UI control with comprehensive visibility options
-- Improved CSS selectors for reliable hiding
-- All new features respect GM/Player distinction via "Apply to GM" setting
+---
 
-### v1.x
-- Initial release with hotbar slot hiding
-- Preset system
-- Export/Import functionality
-- Multi-language support
+# My Story
+
+I am a Game Master (GM) who has always been passionate about tabletop role-playing games. My journey into development began unexpectedly after a career as a truck driver came to an end due to health challenges. In 2021, I suffered several strokes that forced me off the road, leaving me with limited mobility and energy for outings that would otherwise exhaust me for days.
+
+What started as simple curiosity about what a macro could do in Foundry Virtual Tabletop quickly evolved into a full-fledged passion for development. My first major creation was a 3D animated cube with 41 lines of code, which became the foundation of the RNK brand. As a self-taught developer working from my garage, I approach every project with meticulous research and innovative thinking. I refuse to settle for anything less than excellence, pushing myself to create modules that not only function flawlessly but also enhance the gaming experience for fellow GMs and players.
+
+This work keeps me engaged and my mind active during a time when physical limitations restrict my activities. I am engaged to the love of my life, Ms. Lisa, and without her unwavering support, I wouldn't be able to bring anything that I do to the community. It is with her support and encouragement that I have excelled to become what I am today.
+
+I will continue creating and innovating until boredom sets in or health prevents it—whatever comes first. Eventually, I will be looking for someone to take over these modules, someone with the drive and tenacity that I wake up with every day. In the meantime, I am open to collaborations if the project peaks my interest. My modules are born from this dedication, crafted with the same care and precision that defined my driving career, now channeled into the digital realm of virtual tabletop gaming.
+
+Thank you for supporting my creations and sharing in this journey.
+
+For collaborations or inquiries:  
+Email: Asgardinnovations@protonmail.com  
+Discord: Odinn1982  
+Location: Eastern US  
+
+As always, love and respect from the RNK Enterprise, Odinn
+
+---
+
+*RNK™ and all RNK™ modules are trademarks of Asgard Innovations*
