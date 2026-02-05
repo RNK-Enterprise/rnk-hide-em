@@ -12,8 +12,7 @@
     { "name": "Asgard Innovations", "url": "https://github.com/RNK-Enterprise", "email": "asgardinnovations@protonmail.com" }
   ],
   "url": "https://github.com/RNK-Enterprise/rnk-hide-em",
-  "manifest": "https://raw.githubusercontent.com/RNK-Enterprise/rnk-hide-em-public/main/module.json",
-  "download": "https://github.com/RNK-Enterprise/rnk-hide-em/releases/download/v2.2.1/rnk-hide-em.zip",
+  "manifest": "https://r2.foundryvtt.com/packages-public/rnk-hide-em/module.json",
   "scripts": ["scripts/rnk-verification-lib.js"],
   "esmodules": [
     "scripts/module.js",
