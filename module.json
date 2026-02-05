@@ -1,19 +1,9 @@
 {
   "id": "rnk-hide-em",
   "title": "RNK Hide 'Em",
-  "version": "2.2.6",
-  "description": "Advanced hotbar customization module with animation, opacity control, presets, and per-player visibility settings. Hide slots, pages, or controls with smooth transitions.",
-  "protected": true,
-  "media": [
-    {
-      "type": "icon",
-      "url": "assets/rnk-0.jpg"
-    },
-    {
-      "type": "cover",
-      "url": "assets/rnk-1.jpg"
-    }
-  ],
+  "version": "2.2.7",
+  "description": "Premium hotbar customization - Advanced customization with animation, opacity control, presets, and per-player visibility settings. [Patreon Exclusive: https://patreon.com/RagNaroks]",
+  "protected": false,
   "compatibility": {
     "minimum": "11",
     "verified": "13"
@@ -21,25 +11,14 @@
   "authors": [
     {
       "name": "Asgard Innovations / RNK",
-      "url": "https://github.com/RNK-Enterprise"
+      "url": "https://github.com/RNK-Enterprise",
+      "email": "asgardinnovations@protonmail.com"
     }
   ],
   "url": "https://github.com/RNK-Enterprise/rnk-hide-em",
-  "manifest": "https://r2.foundryvtt.com/packages-public/rnk-hide-em/module.json",
-  "license": "https://github.com/RNK-Enterprise/rnk-hide-em/blob/main/LICENSE",
-  "readme": "https://github.com/RNK-Enterprise/rnk-hide-em/blob/main/README.md",
-  "bugs": "https://github.com/RNK-Enterprise/rnk-hide-em/issues",
-  "changelog": "https://github.com/RNK-Enterprise/rnk-hide-em/releases",
-  "library": {
-    "scripts": [
-      "https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"
-    ]
-  },
-  "scripts": [
-    "scripts/rnk-loader.js"
-  ],
+  "manifest": "https://raw.githubusercontent.com/RNK-Enterprise/rnk-hide-em/main/module.json",
   "esmodules": [
-    "scripts/module-encrypted.js"
+    "scripts/module.js"
   ],
   "styles": [
     "styles/module.css"
@@ -51,5 +30,18 @@
       "path": "lang/en.json"
     }
   ],
-  "signature": "809CEFC48453DCEA514D73EFF9F7B5AD0C405CEA4F16C8BD36397712EDDE0ACA"
+  "media": [
+    {
+      "type": "icon",
+      "url": "assets/rnk-0.jpg"
+    },
+    {
+      "type": "cover",
+      "url": "assets/rnk-1.jpg"
+    }
+  ],
+  "changelog": "https://github.com/RNK-Enterprise/rnk-hide-em/releases",
+  "readme": "https://github.com/RNK-Enterprise/rnk-hide-em/blob/main/README.md",
+  "license": "https://github.com/RNK-Enterprise/rnk-hide-em/blob/main/LICENSE",
+  "bugs": "https://github.com/RNK-Enterprise/rnk-hide-em-public/issues"
 }
