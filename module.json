@@ -3,7 +3,7 @@
   "title": "RNK Hide 'Em",
   "version": "2.2.7",
   "description": "Premium hotbar customization - Advanced customization with animation, opacity control, presets, and per-player visibility settings. [Patreon Exclusive: https://patreon.com/RagNaroks]",
-  "protected": false,
+  "protected": true,
   "compatibility": {
     "minimum": "11",
     "verified": "13"
@@ -16,7 +16,7 @@
     }
   ],
   "url": "https://github.com/RNK-Enterprise/rnk-hide-em",
-  "manifest": "https://raw.githubusercontent.com/RNK-Enterprise/rnk-hide-em/main/module.json",
+  "manifest": "https://r2.foundryvtt.com/packages-public/rnk-hide-em/module.json",
   "esmodules": [
     "scripts/module.js"
   ],
